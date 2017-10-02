@@ -24,9 +24,9 @@ with open('test-requirements.txt') as f:
     test_requires = f.read().splitlines()
 
 setup(
-    name='opsgenie-sdk',
+    name='opsgenie-sdk-criteo',
     version='0.3.1',
-    description='Python SDK for OpsGenie Web/REST API',
+    description='Python SDK for OpsGenie Web/REST API (Criteo Forks)',
     long_description=(open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()),
     url='https://github.com/opsgenie/opsgenie-python-sdk',
     author='OpsGenie',
