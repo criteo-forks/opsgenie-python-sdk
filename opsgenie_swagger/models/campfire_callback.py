@@ -37,7 +37,7 @@ class CampfireCallback(object):
         'token': 'str',
         'subdomain': 'str',
         'notify': 'bool',
-        'rooms': 'dict(str, str)'
+        'rooms': 'list[str]'
     }
 
     attribute_map = {
@@ -134,7 +134,7 @@ class CampfireCallback(object):
 
 
         :return: The rooms of this CampfireCallback.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: list[str]
         """
         return self._rooms
 
@@ -144,7 +144,7 @@ class CampfireCallback(object):
 
 
         :param rooms: The rooms of this CampfireCallback.  # noqa: E501
-        :type: dict(str, str)
+        :type: list[str]
         """
 
         self._rooms = rooms

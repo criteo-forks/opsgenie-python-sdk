@@ -44,9 +44,18 @@ class KayakoIntegration(object):
         'ignore_recipients_from_payload': 'bool',
         'recipients': 'list[Recipient]',
         'is_advanced': 'bool',
+        'ignore_tags_from_payload': 'bool',
+        'ignore_extra_properties_from_payload': 'bool',
+        'priority': 'str',
+        'custom_priority': 'str',
+        'tags': 'list[str]',
+        'extra_properties': 'dict(str, str)',
+        'assigned_team': 'TeamMeta',
         'feature_type': 'str',
         'allow_configuration_access': 'bool',
+        'allow_read_access': 'bool',
         'allow_write_access': 'bool',
+        'allow_delete_access': 'bool',
         'alert_filter': 'AlertFilter',
         'forwarding_enabled': 'bool',
         'forwarding_action_mappings': 'list[ActionMapping]',
@@ -65,9 +74,18 @@ class KayakoIntegration(object):
         'ignore_recipients_from_payload': 'ignoreRecipientsFromPayload',
         'recipients': 'recipients',
         'is_advanced': 'isAdvanced',
+        'ignore_tags_from_payload': 'ignoreTagsFromPayload',
+        'ignore_extra_properties_from_payload': 'ignoreExtraPropertiesFromPayload',
+        'priority': 'priority',
+        'custom_priority': 'customPriority',
+        'tags': 'tags',
+        'extra_properties': 'extraProperties',
+        'assigned_team': 'assignedTeam',
         'feature_type': 'feature-type',
         'allow_configuration_access': 'allowConfigurationAccess',
+        'allow_read_access': 'allowReadAccess',
         'allow_write_access': 'allowWriteAccess',
+        'allow_delete_access': 'allowDeleteAccess',
         'alert_filter': 'alertFilter',
         'forwarding_enabled': 'forwardingEnabled',
         'forwarding_action_mappings': 'forwardingActionMappings',
@@ -80,7 +98,7 @@ class KayakoIntegration(object):
         'subdomain': 'subdomain'
     }
 
-    def __init__(self, suppress_notifications=None, ignore_teams_from_payload=None, ignore_recipients_from_payload=None, recipients=None, is_advanced=None, feature_type=None, allow_configuration_access=None, allow_write_access=None, alert_filter=None, forwarding_enabled=None, forwarding_action_mappings=None, callback_type=None, updates_action_mappings=None, updates_enabled=None, bidirectional_callback_type=None, email=None, password=None, subdomain=None):  # noqa: E501
+    def __init__(self, suppress_notifications=None, ignore_teams_from_payload=None, ignore_recipients_from_payload=None, recipients=None, is_advanced=None, ignore_tags_from_payload=None, ignore_extra_properties_from_payload=None, priority=None, custom_priority=None, tags=None, extra_properties=None, assigned_team=None, feature_type=None, allow_configuration_access=None, allow_read_access=None, allow_write_access=None, allow_delete_access=None, alert_filter=None, forwarding_enabled=None, forwarding_action_mappings=None, callback_type=None, updates_action_mappings=None, updates_enabled=None, bidirectional_callback_type=None, email=None, password=None, subdomain=None):  # noqa: E501
         """KayakoIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._suppress_notifications = None
@@ -88,9 +106,18 @@ class KayakoIntegration(object):
         self._ignore_recipients_from_payload = None
         self._recipients = None
         self._is_advanced = None
+        self._ignore_tags_from_payload = None
+        self._ignore_extra_properties_from_payload = None
+        self._priority = None
+        self._custom_priority = None
+        self._tags = None
+        self._extra_properties = None
+        self._assigned_team = None
         self._feature_type = None
         self._allow_configuration_access = None
+        self._allow_read_access = None
         self._allow_write_access = None
+        self._allow_delete_access = None
         self._alert_filter = None
         self._forwarding_enabled = None
         self._forwarding_action_mappings = None
@@ -113,12 +140,30 @@ class KayakoIntegration(object):
             self.recipients = recipients
         if is_advanced is not None:
             self.is_advanced = is_advanced
+        if ignore_tags_from_payload is not None:
+            self.ignore_tags_from_payload = ignore_tags_from_payload
+        if ignore_extra_properties_from_payload is not None:
+            self.ignore_extra_properties_from_payload = ignore_extra_properties_from_payload
+        if priority is not None:
+            self.priority = priority
+        if custom_priority is not None:
+            self.custom_priority = custom_priority
+        if tags is not None:
+            self.tags = tags
+        if extra_properties is not None:
+            self.extra_properties = extra_properties
+        if assigned_team is not None:
+            self.assigned_team = assigned_team
         if feature_type is not None:
             self.feature_type = feature_type
         if allow_configuration_access is not None:
             self.allow_configuration_access = allow_configuration_access
+        if allow_read_access is not None:
+            self.allow_read_access = allow_read_access
         if allow_write_access is not None:
             self.allow_write_access = allow_write_access
+        if allow_delete_access is not None:
+            self.allow_delete_access = allow_delete_access
         if alert_filter is not None:
             self.alert_filter = alert_filter
         if forwarding_enabled is not None:
@@ -254,6 +299,153 @@ class KayakoIntegration(object):
         self._is_advanced = is_advanced
 
     @property
+    def ignore_tags_from_payload(self):
+        """Gets the ignore_tags_from_payload of this KayakoIntegration.  # noqa: E501
+
+
+        :return: The ignore_tags_from_payload of this KayakoIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_tags_from_payload
+
+    @ignore_tags_from_payload.setter
+    def ignore_tags_from_payload(self, ignore_tags_from_payload):
+        """Sets the ignore_tags_from_payload of this KayakoIntegration.
+
+
+        :param ignore_tags_from_payload: The ignore_tags_from_payload of this KayakoIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_tags_from_payload = ignore_tags_from_payload
+
+    @property
+    def ignore_extra_properties_from_payload(self):
+        """Gets the ignore_extra_properties_from_payload of this KayakoIntegration.  # noqa: E501
+
+
+        :return: The ignore_extra_properties_from_payload of this KayakoIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_extra_properties_from_payload
+
+    @ignore_extra_properties_from_payload.setter
+    def ignore_extra_properties_from_payload(self, ignore_extra_properties_from_payload):
+        """Sets the ignore_extra_properties_from_payload of this KayakoIntegration.
+
+
+        :param ignore_extra_properties_from_payload: The ignore_extra_properties_from_payload of this KayakoIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_extra_properties_from_payload = ignore_extra_properties_from_payload
+
+    @property
+    def priority(self):
+        """Gets the priority of this KayakoIntegration.  # noqa: E501
+
+
+        :return: The priority of this KayakoIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        """Sets the priority of this KayakoIntegration.
+
+
+        :param priority: The priority of this KayakoIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._priority = priority
+
+    @property
+    def custom_priority(self):
+        """Gets the custom_priority of this KayakoIntegration.  # noqa: E501
+
+
+        :return: The custom_priority of this KayakoIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_priority
+
+    @custom_priority.setter
+    def custom_priority(self, custom_priority):
+        """Sets the custom_priority of this KayakoIntegration.
+
+
+        :param custom_priority: The custom_priority of this KayakoIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_priority = custom_priority
+
+    @property
+    def tags(self):
+        """Gets the tags of this KayakoIntegration.  # noqa: E501
+
+
+        :return: The tags of this KayakoIntegration.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this KayakoIntegration.
+
+
+        :param tags: The tags of this KayakoIntegration.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
+
+    @property
+    def extra_properties(self):
+        """Gets the extra_properties of this KayakoIntegration.  # noqa: E501
+
+
+        :return: The extra_properties of this KayakoIntegration.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._extra_properties
+
+    @extra_properties.setter
+    def extra_properties(self, extra_properties):
+        """Sets the extra_properties of this KayakoIntegration.
+
+
+        :param extra_properties: The extra_properties of this KayakoIntegration.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._extra_properties = extra_properties
+
+    @property
+    def assigned_team(self):
+        """Gets the assigned_team of this KayakoIntegration.  # noqa: E501
+
+
+        :return: The assigned_team of this KayakoIntegration.  # noqa: E501
+        :rtype: TeamMeta
+        """
+        return self._assigned_team
+
+    @assigned_team.setter
+    def assigned_team(self, assigned_team):
+        """Sets the assigned_team of this KayakoIntegration.
+
+
+        :param assigned_team: The assigned_team of this KayakoIntegration.  # noqa: E501
+        :type: TeamMeta
+        """
+
+        self._assigned_team = assigned_team
+
+    @property
     def feature_type(self):
         """Gets the feature_type of this KayakoIntegration.  # noqa: E501
 
@@ -304,6 +496,27 @@ class KayakoIntegration(object):
         self._allow_configuration_access = allow_configuration_access
 
     @property
+    def allow_read_access(self):
+        """Gets the allow_read_access of this KayakoIntegration.  # noqa: E501
+
+
+        :return: The allow_read_access of this KayakoIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_read_access
+
+    @allow_read_access.setter
+    def allow_read_access(self, allow_read_access):
+        """Sets the allow_read_access of this KayakoIntegration.
+
+
+        :param allow_read_access: The allow_read_access of this KayakoIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_read_access = allow_read_access
+
+    @property
     def allow_write_access(self):
         """Gets the allow_write_access of this KayakoIntegration.  # noqa: E501
 
@@ -325,6 +538,27 @@ class KayakoIntegration(object):
         """
 
         self._allow_write_access = allow_write_access
+
+    @property
+    def allow_delete_access(self):
+        """Gets the allow_delete_access of this KayakoIntegration.  # noqa: E501
+
+
+        :return: The allow_delete_access of this KayakoIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_delete_access
+
+    @allow_delete_access.setter
+    def allow_delete_access(self, allow_delete_access):
+        """Sets the allow_delete_access of this KayakoIntegration.
+
+
+        :param allow_delete_access: The allow_delete_access of this KayakoIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_delete_access = allow_delete_access
 
     @property
     def alert_filter(self):
@@ -407,7 +641,7 @@ class KayakoIntegration(object):
         :param callback_type: The callback_type of this KayakoIntegration.  # noqa: E501
         :type: str
         """
-        allowed_values = ["bidirectional-callback-new", "amazon-sns-callback"]  # noqa: E501
+        allowed_values = ["amazon-sns-callback", "base-webhook-callback", "bidirectional-callback-new", "bmc-remedy-on-demand-callback"]  # noqa: E501
         if callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `callback_type` ({0}), must be one of {1}"  # noqa: E501
@@ -476,7 +710,7 @@ class KayakoIntegration(object):
         :param bidirectional_callback_type: The bidirectional_callback_type of this KayakoIntegration.  # noqa: E501
         :type: str
         """
-        allowed_values = ["opsgenie-callback", "jira-callback", "jira-service-desk-callback", "service-now-callback", "kayako-callback", "ms-teams-callback", "op5-callback", "status-page-io-callback", "zendesk-callback"]  # noqa: E501
+        allowed_values = ["bmc-foot-prints-v11-callback", "bmc-foot-prints-v12-callback", "bmc-remedy-callback", "cherwell-callback", "connect-wise-manage-callback", "connect-wise-manage-v2-callback", "dynatrace-app-mon-callback", "freshdesk-callback", "freshservice-callback", "jira-callback", "jira-service-desk-callback", "kayako-callback", "libre-nms-callback", "magentrix-callback", "ms-teams-callback", "ms-teams-v2-callback", "op5-callback", "ops-genie-callback", "prtg-callback", "rollbar-callback", "sales-force-service-cloud-callback", "service-now-v2-callback", "service-now-v3-callback", "solarwinds-msp-ncentral-callback", "splunk-itsi-callback", "status-page-io-callback", "sumo-logic-callback", "zendesk-callback"]  # noqa: E501
         if bidirectional_callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `bidirectional_callback_type` ({0}), must be one of {1}"  # noqa: E501

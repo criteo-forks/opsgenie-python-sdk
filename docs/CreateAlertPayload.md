@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **alias** | **str** | Client-defined identifier of the alert, that is also the key element of alert deduplication. | [optional] 
 **description** | **str** | Description field of the alert that is generally used to provide a detailed information about the alert. | [optional] 
 **teams** | [**list[TeamRecipient]**](TeamRecipient.md) | Teams that the alert will be routed to send notifications | [optional] 
+**responders** | [**list[Recipient]**](Recipient.md) | Responders that the alert will be routed to send notifications | [optional] 
 **visible_to** | [**list[Recipient]**](Recipient.md) | Teams and users that the alert will become visible to without sending any notification | [optional] 
 **actions** | **list[str]** | Custom actions that will be available for the alert | [optional] 
 **tags** | **list[str]** | Tags of the alert | [optional] 

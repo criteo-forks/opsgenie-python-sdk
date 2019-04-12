@@ -43,9 +43,18 @@ class SolarWindsWebHelpDeskIntegration(object):
         'ignore_recipients_from_payload': 'bool',
         'recipients': 'list[Recipient]',
         'is_advanced': 'bool',
+        'ignore_tags_from_payload': 'bool',
+        'ignore_extra_properties_from_payload': 'bool',
+        'priority': 'str',
+        'custom_priority': 'str',
+        'tags': 'list[str]',
+        'extra_properties': 'dict(str, str)',
+        'assigned_team': 'TeamMeta',
         'feature_type': 'str',
         'allow_configuration_access': 'bool',
+        'allow_read_access': 'bool',
         'allow_write_access': 'bool',
+        'allow_delete_access': 'bool',
         'alert_filter': 'AlertFilter',
         'alert_actions': 'list[str]',
         'callback_type': 'str',
@@ -61,9 +70,18 @@ class SolarWindsWebHelpDeskIntegration(object):
         'ignore_recipients_from_payload': 'ignoreRecipientsFromPayload',
         'recipients': 'recipients',
         'is_advanced': 'isAdvanced',
+        'ignore_tags_from_payload': 'ignoreTagsFromPayload',
+        'ignore_extra_properties_from_payload': 'ignoreExtraPropertiesFromPayload',
+        'priority': 'priority',
+        'custom_priority': 'customPriority',
+        'tags': 'tags',
+        'extra_properties': 'extraProperties',
+        'assigned_team': 'assignedTeam',
         'feature_type': 'feature-type',
         'allow_configuration_access': 'allowConfigurationAccess',
+        'allow_read_access': 'allowReadAccess',
         'allow_write_access': 'allowWriteAccess',
+        'allow_delete_access': 'allowDeleteAccess',
         'alert_filter': 'alertFilter',
         'alert_actions': 'alertActions',
         'callback_type': 'callback-type',
@@ -73,7 +91,7 @@ class SolarWindsWebHelpDeskIntegration(object):
         'solar_winds_web_help_server_url': 'solarWindsWebHelpServerURL'
     }
 
-    def __init__(self, suppress_notifications=None, ignore_teams_from_payload=None, ignore_recipients_from_payload=None, recipients=None, is_advanced=None, feature_type=None, allow_configuration_access=None, allow_write_access=None, alert_filter=None, alert_actions=None, callback_type=None, send_alert_actions=None, bidirectional_callback_type=None, solar_winds_web_help_desk_api_key=None, solar_winds_web_help_server_url=None):  # noqa: E501
+    def __init__(self, suppress_notifications=None, ignore_teams_from_payload=None, ignore_recipients_from_payload=None, recipients=None, is_advanced=None, ignore_tags_from_payload=None, ignore_extra_properties_from_payload=None, priority=None, custom_priority=None, tags=None, extra_properties=None, assigned_team=None, feature_type=None, allow_configuration_access=None, allow_read_access=None, allow_write_access=None, allow_delete_access=None, alert_filter=None, alert_actions=None, callback_type=None, send_alert_actions=None, bidirectional_callback_type=None, solar_winds_web_help_desk_api_key=None, solar_winds_web_help_server_url=None):  # noqa: E501
         """SolarWindsWebHelpDeskIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._suppress_notifications = None
@@ -81,9 +99,18 @@ class SolarWindsWebHelpDeskIntegration(object):
         self._ignore_recipients_from_payload = None
         self._recipients = None
         self._is_advanced = None
+        self._ignore_tags_from_payload = None
+        self._ignore_extra_properties_from_payload = None
+        self._priority = None
+        self._custom_priority = None
+        self._tags = None
+        self._extra_properties = None
+        self._assigned_team = None
         self._feature_type = None
         self._allow_configuration_access = None
+        self._allow_read_access = None
         self._allow_write_access = None
+        self._allow_delete_access = None
         self._alert_filter = None
         self._alert_actions = None
         self._callback_type = None
@@ -103,12 +130,30 @@ class SolarWindsWebHelpDeskIntegration(object):
             self.recipients = recipients
         if is_advanced is not None:
             self.is_advanced = is_advanced
+        if ignore_tags_from_payload is not None:
+            self.ignore_tags_from_payload = ignore_tags_from_payload
+        if ignore_extra_properties_from_payload is not None:
+            self.ignore_extra_properties_from_payload = ignore_extra_properties_from_payload
+        if priority is not None:
+            self.priority = priority
+        if custom_priority is not None:
+            self.custom_priority = custom_priority
+        if tags is not None:
+            self.tags = tags
+        if extra_properties is not None:
+            self.extra_properties = extra_properties
+        if assigned_team is not None:
+            self.assigned_team = assigned_team
         if feature_type is not None:
             self.feature_type = feature_type
         if allow_configuration_access is not None:
             self.allow_configuration_access = allow_configuration_access
+        if allow_read_access is not None:
+            self.allow_read_access = allow_read_access
         if allow_write_access is not None:
             self.allow_write_access = allow_write_access
+        if allow_delete_access is not None:
+            self.allow_delete_access = allow_delete_access
         if alert_filter is not None:
             self.alert_filter = alert_filter
         if alert_actions is not None:
@@ -238,6 +283,153 @@ class SolarWindsWebHelpDeskIntegration(object):
         self._is_advanced = is_advanced
 
     @property
+    def ignore_tags_from_payload(self):
+        """Gets the ignore_tags_from_payload of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+
+
+        :return: The ignore_tags_from_payload of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_tags_from_payload
+
+    @ignore_tags_from_payload.setter
+    def ignore_tags_from_payload(self, ignore_tags_from_payload):
+        """Sets the ignore_tags_from_payload of this SolarWindsWebHelpDeskIntegration.
+
+
+        :param ignore_tags_from_payload: The ignore_tags_from_payload of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_tags_from_payload = ignore_tags_from_payload
+
+    @property
+    def ignore_extra_properties_from_payload(self):
+        """Gets the ignore_extra_properties_from_payload of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+
+
+        :return: The ignore_extra_properties_from_payload of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_extra_properties_from_payload
+
+    @ignore_extra_properties_from_payload.setter
+    def ignore_extra_properties_from_payload(self, ignore_extra_properties_from_payload):
+        """Sets the ignore_extra_properties_from_payload of this SolarWindsWebHelpDeskIntegration.
+
+
+        :param ignore_extra_properties_from_payload: The ignore_extra_properties_from_payload of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_extra_properties_from_payload = ignore_extra_properties_from_payload
+
+    @property
+    def priority(self):
+        """Gets the priority of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+
+
+        :return: The priority of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        """Sets the priority of this SolarWindsWebHelpDeskIntegration.
+
+
+        :param priority: The priority of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._priority = priority
+
+    @property
+    def custom_priority(self):
+        """Gets the custom_priority of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+
+
+        :return: The custom_priority of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_priority
+
+    @custom_priority.setter
+    def custom_priority(self, custom_priority):
+        """Sets the custom_priority of this SolarWindsWebHelpDeskIntegration.
+
+
+        :param custom_priority: The custom_priority of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_priority = custom_priority
+
+    @property
+    def tags(self):
+        """Gets the tags of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+
+
+        :return: The tags of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this SolarWindsWebHelpDeskIntegration.
+
+
+        :param tags: The tags of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
+
+    @property
+    def extra_properties(self):
+        """Gets the extra_properties of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+
+
+        :return: The extra_properties of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._extra_properties
+
+    @extra_properties.setter
+    def extra_properties(self, extra_properties):
+        """Sets the extra_properties of this SolarWindsWebHelpDeskIntegration.
+
+
+        :param extra_properties: The extra_properties of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._extra_properties = extra_properties
+
+    @property
+    def assigned_team(self):
+        """Gets the assigned_team of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+
+
+        :return: The assigned_team of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :rtype: TeamMeta
+        """
+        return self._assigned_team
+
+    @assigned_team.setter
+    def assigned_team(self, assigned_team):
+        """Sets the assigned_team of this SolarWindsWebHelpDeskIntegration.
+
+
+        :param assigned_team: The assigned_team of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :type: TeamMeta
+        """
+
+        self._assigned_team = assigned_team
+
+    @property
     def feature_type(self):
         """Gets the feature_type of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
 
@@ -288,6 +480,27 @@ class SolarWindsWebHelpDeskIntegration(object):
         self._allow_configuration_access = allow_configuration_access
 
     @property
+    def allow_read_access(self):
+        """Gets the allow_read_access of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+
+
+        :return: The allow_read_access of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_read_access
+
+    @allow_read_access.setter
+    def allow_read_access(self, allow_read_access):
+        """Sets the allow_read_access of this SolarWindsWebHelpDeskIntegration.
+
+
+        :param allow_read_access: The allow_read_access of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_read_access = allow_read_access
+
+    @property
     def allow_write_access(self):
         """Gets the allow_write_access of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
 
@@ -309,6 +522,27 @@ class SolarWindsWebHelpDeskIntegration(object):
         """
 
         self._allow_write_access = allow_write_access
+
+    @property
+    def allow_delete_access(self):
+        """Gets the allow_delete_access of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+
+
+        :return: The allow_delete_access of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_delete_access
+
+    @allow_delete_access.setter
+    def allow_delete_access(self, allow_delete_access):
+        """Sets the allow_delete_access of this SolarWindsWebHelpDeskIntegration.
+
+
+        :param allow_delete_access: The allow_delete_access of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_delete_access = allow_delete_access
 
     @property
     def alert_filter(self):
@@ -370,7 +604,7 @@ class SolarWindsWebHelpDeskIntegration(object):
         :param callback_type: The callback_type of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
         :type: str
         """
-        allowed_values = ["bidirectional-callback", "webhook-callback", "campfire-callback", "flowdock-callback", "flowdock-v2-callback", "planio-callback"]  # noqa: E501
+        allowed_values = ["bidirectional-callback", "campfire-callback", "flowdock-callback", "flowdock-v2-callback", "planio-callback"]  # noqa: E501
         if callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `callback_type` ({0}), must be one of {1}"  # noqa: E501
@@ -418,7 +652,7 @@ class SolarWindsWebHelpDeskIntegration(object):
         :param bidirectional_callback_type: The bidirectional_callback_type of this SolarWindsWebHelpDeskIntegration.  # noqa: E501
         :type: str
         """
-        allowed_values = ["datadog-callback", "circonus-callback", "connect-wise-callback", "desk-callback", "es-watcher-callback", "freshdesk-callback", "hipchat-callback", "marid-callback", "logic-monitor-callback", "mattermost-callback", "slack-callback", "solarwinds-web-helpdesk-callback", "stackdriver-callback", "status-io-callback"]  # noqa: E501
+        allowed_values = ["circonus-callback", "connect-wise-callback", "datadog-callback", "desk-callback", "es-watcher-callback", "hip-chat-add-on-callback", "hip-chat-callback-v2", "icinga2-callback", "icinga-callback", "logic-monitor-callback", "marid-callback", "mattermost-callback", "nagios-based-v1-callback", "nagios-based-v2-callback", "nagios-xiv1-callback", "nagios-xiv2-callback", "slack-app-callback", "slack-callback", "solarwinds-callback", "solar-winds-web-help-desk-callback", "stackdriver-callback", "status-io-callback", "track-it-callback", "xmpp-callback", "zabbix-callback", "zenoss-callback"]  # noqa: E501
         if bidirectional_callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `bidirectional_callback_type` ({0}), must be one of {1}"  # noqa: E501

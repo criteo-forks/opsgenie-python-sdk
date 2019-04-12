@@ -451,7 +451,6 @@ class TeamApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param list[str] expand: Returns more detailed response with expanding it. Possible value is 'member' which is also returned with expandable field of response
         :return: ListTeamsResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -473,13 +472,12 @@ class TeamApi(object):
         >>> result = thread.get()
 
         :param async bool
-        :param list[str] expand: Returns more detailed response with expanding it. Possible value is 'member' which is also returned with expandable field of response
         :return: ListTeamsResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['expand']  # noqa: E501
+        all_params = []  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -500,9 +498,6 @@ class TeamApi(object):
         path_params = {}
 
         query_params = []
-        if 'expand' in params:
-            query_params.append(('expand', params['expand']))  # noqa: E501
-            collection_formats['expand'] = 'csv'  # noqa: E501
 
         header_params = {}
 

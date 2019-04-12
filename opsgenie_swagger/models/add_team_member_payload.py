@@ -82,7 +82,7 @@ class AddTeamMemberPayload(object):
     def role(self):
         """Gets the role of this AddTeamMemberPayload.  # noqa: E501
 
-        Member role of the user, consisting 'user' and 'admin'. Default value is 'user'  # noqa: E501
+        Member role of the user, consisting 'user', 'admin' or a custom team role. Default value is 'user'  # noqa: E501
 
         :return: The role of this AddTeamMemberPayload.  # noqa: E501
         :rtype: str
@@ -93,17 +93,11 @@ class AddTeamMemberPayload(object):
     def role(self, role):
         """Sets the role of this AddTeamMemberPayload.
 
-        Member role of the user, consisting 'user' and 'admin'. Default value is 'user'  # noqa: E501
+        Member role of the user, consisting 'user', 'admin' or a custom team role. Default value is 'user'  # noqa: E501
 
         :param role: The role of this AddTeamMemberPayload.  # noqa: E501
         :type: str
         """
-        allowed_values = ["user", "admin"]  # noqa: E501
-        if role not in allowed_values:
-            raise ValueError(
-                "Invalid value for `role` ({0}), must be one of {1}"  # noqa: E501
-                .format(role, allowed_values)
-            )
 
         self._role = role
 

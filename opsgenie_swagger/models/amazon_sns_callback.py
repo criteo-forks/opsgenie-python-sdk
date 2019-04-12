@@ -36,25 +36,30 @@ class AmazonSnsCallback(object):
     """
     swagger_types = {
         'topic_arn': 'str',
-        'region': 'str'
+        'region': 'str',
+        'new_conf_type': 'bool'
     }
 
     attribute_map = {
         'topic_arn': 'topicArn',
-        'region': 'region'
+        'region': 'region',
+        'new_conf_type': 'newConfType'
     }
 
-    def __init__(self, topic_arn=None, region=None):  # noqa: E501
+    def __init__(self, topic_arn=None, region=None, new_conf_type=None):  # noqa: E501
         """AmazonSnsCallback - a model defined in Swagger"""  # noqa: E501
 
         self._topic_arn = None
         self._region = None
+        self._new_conf_type = None
         self.discriminator = None
 
         if topic_arn is not None:
             self.topic_arn = topic_arn
         if region is not None:
             self.region = region
+        if new_conf_type is not None:
+            self.new_conf_type = new_conf_type
 
     @property
     def topic_arn(self):
@@ -97,6 +102,27 @@ class AmazonSnsCallback(object):
         """
 
         self._region = region
+
+    @property
+    def new_conf_type(self):
+        """Gets the new_conf_type of this AmazonSnsCallback.  # noqa: E501
+
+
+        :return: The new_conf_type of this AmazonSnsCallback.  # noqa: E501
+        :rtype: bool
+        """
+        return self._new_conf_type
+
+    @new_conf_type.setter
+    def new_conf_type(self, new_conf_type):
+        """Sets the new_conf_type of this AmazonSnsCallback.
+
+
+        :param new_conf_type: The new_conf_type of this AmazonSnsCallback.  # noqa: E501
+        :type: bool
+        """
+
+        self._new_conf_type = new_conf_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

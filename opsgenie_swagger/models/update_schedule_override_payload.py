@@ -141,6 +141,7 @@ class UpdateScheduleOverridePayload(object):
     def rotations(self):
         """Gets the rotations of this UpdateScheduleOverridePayload.  # noqa: E501
 
+        Identifier (id or name) of rotations that override will apply. When it's set, only specified schedule rotations will be overridden  # noqa: E501
 
         :return: The rotations of this UpdateScheduleOverridePayload.  # noqa: E501
         :rtype: list[ScheduleOverrideRotation]
@@ -151,6 +152,7 @@ class UpdateScheduleOverridePayload(object):
     def rotations(self, rotations):
         """Sets the rotations of this UpdateScheduleOverridePayload.
 
+        Identifier (id or name) of rotations that override will apply. When it's set, only specified schedule rotations will be overridden  # noqa: E501
 
         :param rotations: The rotations of this UpdateScheduleOverridePayload.  # noqa: E501
         :type: list[ScheduleOverrideRotation]

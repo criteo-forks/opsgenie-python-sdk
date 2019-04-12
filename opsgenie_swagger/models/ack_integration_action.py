@@ -16,7 +16,6 @@ import re  # noqa: F401
 
 import six
 
-from opsgenie_swagger.models.base_integration_action import BaseIntegrationAction  # noqa: F401,E501
 from opsgenie_swagger.models.common_integration_action import CommonIntegrationAction  # noqa: F401,E501
 from opsgenie_swagger.models.integration_action_filter import IntegrationActionFilter  # noqa: F401,E501
 
@@ -35,94 +34,14 @@ class AckIntegrationAction(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'user': 'str',
-        'note': 'str',
-        'alias': 'str'
     }
 
     attribute_map = {
-        'user': 'user',
-        'note': 'note',
-        'alias': 'alias'
     }
 
-    def __init__(self, user=None, note=None, alias=None):  # noqa: E501
+    def __init__(self):  # noqa: E501
         """AckIntegrationAction - a model defined in Swagger"""  # noqa: E501
-
-        self._user = None
-        self._note = None
-        self._alias = None
         self.discriminator = None
-
-        if user is not None:
-            self.user = user
-        if note is not None:
-            self.note = note
-        if alias is not None:
-            self.alias = alias
-
-    @property
-    def user(self):
-        """Gets the user of this AckIntegrationAction.  # noqa: E501
-
-
-        :return: The user of this AckIntegrationAction.  # noqa: E501
-        :rtype: str
-        """
-        return self._user
-
-    @user.setter
-    def user(self, user):
-        """Sets the user of this AckIntegrationAction.
-
-
-        :param user: The user of this AckIntegrationAction.  # noqa: E501
-        :type: str
-        """
-
-        self._user = user
-
-    @property
-    def note(self):
-        """Gets the note of this AckIntegrationAction.  # noqa: E501
-
-
-        :return: The note of this AckIntegrationAction.  # noqa: E501
-        :rtype: str
-        """
-        return self._note
-
-    @note.setter
-    def note(self, note):
-        """Sets the note of this AckIntegrationAction.
-
-
-        :param note: The note of this AckIntegrationAction.  # noqa: E501
-        :type: str
-        """
-
-        self._note = note
-
-    @property
-    def alias(self):
-        """Gets the alias of this AckIntegrationAction.  # noqa: E501
-
-
-        :return: The alias of this AckIntegrationAction.  # noqa: E501
-        :rtype: str
-        """
-        return self._alias
-
-    @alias.setter
-    def alias(self, alias):
-        """Sets the alias of this AckIntegrationAction.
-
-
-        :param alias: The alias of this AckIntegrationAction.  # noqa: E501
-        :type: str
-        """
-
-        self._alias = alias
 
     def to_dict(self):
         """Returns the model properties as a dict"""

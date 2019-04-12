@@ -35,7 +35,7 @@ class FlowdockCallback(object):
     """
     swagger_types = {
         'flowdock_api_token': 'str',
-        'flowdock_tags': 'dict(str, str)',
+        'flowdock_tags': 'list[str]',
         'external_username': 'str'
     }
 
@@ -87,7 +87,7 @@ class FlowdockCallback(object):
 
 
         :return: The flowdock_tags of this FlowdockCallback.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: list[str]
         """
         return self._flowdock_tags
 
@@ -97,7 +97,7 @@ class FlowdockCallback(object):
 
 
         :param flowdock_tags: The flowdock_tags of this FlowdockCallback.  # noqa: E501
-        :type: dict(str, str)
+        :type: list[str]
         """
 
         self._flowdock_tags = flowdock_tags

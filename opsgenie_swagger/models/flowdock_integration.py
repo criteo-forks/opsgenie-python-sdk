@@ -40,7 +40,7 @@ class FlowdockIntegration(object):
         'alert_actions': 'list[str]',
         'callback_type': 'str',
         'flowdock_api_token': 'str',
-        'flowdock_tags': 'dict(str, str)',
+        'flowdock_tags': 'list[str]',
         'external_username': 'str'
     }
 
@@ -137,7 +137,7 @@ class FlowdockIntegration(object):
         :param callback_type: The callback_type of this FlowdockIntegration.  # noqa: E501
         :type: str
         """
-        allowed_values = ["bidirectional-callback", "webhook-callback", "campfire-callback", "flowdock-callback", "flowdock-v2-callback", "planio-callback"]  # noqa: E501
+        allowed_values = ["bidirectional-callback", "campfire-callback", "flowdock-callback", "flowdock-v2-callback", "planio-callback"]  # noqa: E501
         if callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `callback_type` ({0}), must be one of {1}"  # noqa: E501
@@ -173,7 +173,7 @@ class FlowdockIntegration(object):
 
 
         :return: The flowdock_tags of this FlowdockIntegration.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: list[str]
         """
         return self._flowdock_tags
 
@@ -183,7 +183,7 @@ class FlowdockIntegration(object):
 
 
         :param flowdock_tags: The flowdock_tags of this FlowdockIntegration.  # noqa: E501
-        :type: dict(str, str)
+        :type: list[str]
         """
 
         self._flowdock_tags = flowdock_tags

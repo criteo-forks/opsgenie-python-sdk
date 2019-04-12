@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**add_attachment**](AlertApi.md#add_attachment) | **POST** /v2/alerts/{identifier}/attachments | Add Alert Attachment
 [**add_details**](AlertApi.md#add_details) | **POST** /v2/alerts/{identifier}/details | Add Details
 [**add_note**](AlertApi.md#add_note) | **POST** /v2/alerts/{identifier}/notes | Add Note
+[**add_responder**](AlertApi.md#add_responder) | **POST** /v2/alerts/{identifier}/responders | Add Responder
 [**add_tags**](AlertApi.md#add_tags) | **POST** /v2/alerts/{identifier}/tags | Add Tags
 [**add_team**](AlertApi.md#add_team) | **POST** /v2/alerts/{identifier}/teams | Add Team
 [**assign_alert**](AlertApi.md#assign_alert) | **POST** /v2/alerts/{identifier}/assign | Assign Alert
@@ -254,6 +255,64 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **str**| Identifier of alert which could be alert id, tiny id or alert alias | 
  **body** | [**AddNoteToAlertPayload**](AddNoteToAlertPayload.md)| Request payload of adding note to alert action | 
+ **identifier_type** | **str**| Type of the identifier that is provided as an in-line parameter. Possible values are &#39;id&#39;, &#39;alias&#39; or &#39;tiny&#39; | [optional] [default to id]
+
+### Return type
+
+[**SuccessResponse**](SuccessResponse.md)
+
+### Authorization
+
+[GenieKey](../README.md#GenieKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **add_responder**
+> SuccessResponse add_responder(identifier, body, identifier_type=identifier_type)
+
+Add Responder
+
+Add responder to alert with given identifier
+
+### Example
+```python
+from __future__ import print_function
+import time
+import opsgenie_swagger
+from opsgenie_swagger.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: GenieKey
+configuration = opsgenie_swagger.Configuration()
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = opsgenie_swagger.AlertApi(opsgenie_swagger.ApiClient(configuration))
+identifier = 'identifier_example' # str | Identifier of alert which could be alert id, tiny id or alert alias
+body = opsgenie_swagger.AddResponderToAlertPayload() # AddResponderToAlertPayload | Request payload of adding responder to alert action
+identifier_type = 'id' # str | Type of the identifier that is provided as an in-line parameter. Possible values are 'id', 'alias' or 'tiny' (optional) (default to id)
+
+try:
+    # Add Responder
+    api_response = api_instance.add_responder(identifier, body, identifier_type=identifier_type)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AlertApi->add_responder: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **str**| Identifier of alert which could be alert id, tiny id or alert alias | 
+ **body** | [**AddResponderToAlertPayload**](AddResponderToAlertPayload.md)| Request payload of adding responder to alert action | 
  **identifier_type** | **str**| Type of the identifier that is provided as an in-line parameter. Possible values are &#39;id&#39;, &#39;alias&#39; or &#39;tiny&#39; | [optional] [default to id]
 
 ### Return type

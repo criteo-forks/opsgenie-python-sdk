@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**field** | **str** |  | 
+**field** | **str** |  | [optional] 
 **_not** | **bool** |  | [optional] 
-**operation** | **str** |  | 
-**expected_value** | **str** |  | 
+**operation** | **str** |  | [optional] 
+**expected_value** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

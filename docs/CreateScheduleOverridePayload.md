@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**alias** | **str** | A user defined identifier for the override | 
+**alias** | **str** | A user defined identifier for the override | [optional] 
 **user** | [**Recipient**](Recipient.md) | The user object who will take on call responsibility or reserved word none | 
 **start_date** | **datetime** | Time for override starting | 
 **end_date** | **datetime** | Time for override ending | 

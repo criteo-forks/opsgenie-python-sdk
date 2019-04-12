@@ -3,14 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | **str** |  | [optional] 
-**note** | **str** |  | [optional] 
-**alias** | **str** |  | [optional] 
 **source** | **str** |  | [optional] 
 **message** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **entity** | **str** |  | [optional] 
 **priority** | **str** |  | [optional] 
+**custom_priority** | **str** |  | [optional] 
 **append_attachments** | **bool** |  | [optional] 
 **alert_actions** | **list[str]** |  | [optional] 
 **ignore_alert_actions_from_payload** | **bool** |  | [optional] 

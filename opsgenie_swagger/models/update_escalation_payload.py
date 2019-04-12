@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from opsgenie_swagger.models.escalation_repeat import EscalationRepeat  # noqa: F401,E501
 from opsgenie_swagger.models.escalation_rule import EscalationRule  # noqa: F401,E501
 from opsgenie_swagger.models.team_meta import TeamMeta  # noqa: F401,E501
 
@@ -37,23 +38,26 @@ class UpdateEscalationPayload(object):
         'name': 'str',
         'description': 'str',
         'rules': 'list[EscalationRule]',
-        'owner_team': 'TeamMeta'
+        'owner_team': 'TeamMeta',
+        'repeat': 'EscalationRepeat'
     }
 
     attribute_map = {
         'name': 'name',
         'description': 'description',
         'rules': 'rules',
-        'owner_team': 'ownerTeam'
+        'owner_team': 'ownerTeam',
+        'repeat': 'repeat'
     }
 
-    def __init__(self, name=None, description=None, rules=None, owner_team=None):  # noqa: E501
+    def __init__(self, name=None, description=None, rules=None, owner_team=None, repeat=None):  # noqa: E501
         """UpdateEscalationPayload - a model defined in Swagger"""  # noqa: E501
 
         self._name = None
         self._description = None
         self._rules = None
         self._owner_team = None
+        self._repeat = None
         self.discriminator = None
 
         if name is not None:
@@ -64,6 +68,8 @@ class UpdateEscalationPayload(object):
             self.rules = rules
         if owner_team is not None:
             self.owner_team = owner_team
+        if repeat is not None:
+            self.repeat = repeat
 
     @property
     def name(self):
@@ -156,6 +162,29 @@ class UpdateEscalationPayload(object):
         """
 
         self._owner_team = owner_team
+
+    @property
+    def repeat(self):
+        """Gets the repeat of this UpdateEscalationPayload.  # noqa: E501
+
+        Repeat preferences of escalation  # noqa: E501
+
+        :return: The repeat of this UpdateEscalationPayload.  # noqa: E501
+        :rtype: EscalationRepeat
+        """
+        return self._repeat
+
+    @repeat.setter
+    def repeat(self, repeat):
+        """Sets the repeat of this UpdateEscalationPayload.
+
+        Repeat preferences of escalation  # noqa: E501
+
+        :param repeat: The repeat of this UpdateEscalationPayload.  # noqa: E501
+        :type: EscalationRepeat
+        """
+
+        self._repeat = repeat
 
     def to_dict(self):
         """Returns the model properties as a dict"""

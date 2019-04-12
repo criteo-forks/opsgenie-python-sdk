@@ -16,9 +16,8 @@ import re  # noqa: F401
 
 import six
 
-from opsgenie_swagger.models.action_mapping import ActionMapping  # noqa: F401,E501
 from opsgenie_swagger.models.alert_filter import AlertFilter  # noqa: F401,E501
-from opsgenie_swagger.models.amazon_sns_callback import AmazonSnsCallback  # noqa: F401,E501
+from opsgenie_swagger.models.campfire_callback import CampfireCallback  # noqa: F401,E501
 from opsgenie_swagger.models.integration import Integration  # noqa: F401,E501
 from opsgenie_swagger.models.team_meta import TeamMeta  # noqa: F401,E501
 
@@ -38,45 +37,50 @@ class CampfireIntegration(object):
     """
     swagger_types = {
         'alert_filter': 'AlertFilter',
-        'forwarding_enabled': 'bool',
-        'forwarding_action_mappings': 'list[ActionMapping]',
+        'alert_actions': 'list[str]',
         'callback_type': 'str',
-        'topic_arn': 'str',
-        'region': 'str'
+        'token': 'str',
+        'subdomain': 'str',
+        'notify': 'bool',
+        'rooms': 'list[str]'
     }
 
     attribute_map = {
         'alert_filter': 'alertFilter',
-        'forwarding_enabled': 'forwardingEnabled',
-        'forwarding_action_mappings': 'forwardingActionMappings',
+        'alert_actions': 'alertActions',
         'callback_type': 'callback-type',
-        'topic_arn': 'topicArn',
-        'region': 'region'
+        'token': 'token',
+        'subdomain': 'subdomain',
+        'notify': 'notify',
+        'rooms': 'rooms'
     }
 
-    def __init__(self, alert_filter=None, forwarding_enabled=None, forwarding_action_mappings=None, callback_type=None, topic_arn=None, region=None):  # noqa: E501
+    def __init__(self, alert_filter=None, alert_actions=None, callback_type=None, token=None, subdomain=None, notify=None, rooms=None):  # noqa: E501
         """CampfireIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._alert_filter = None
-        self._forwarding_enabled = None
-        self._forwarding_action_mappings = None
+        self._alert_actions = None
         self._callback_type = None
-        self._topic_arn = None
-        self._region = None
+        self._token = None
+        self._subdomain = None
+        self._notify = None
+        self._rooms = None
         self.discriminator = None
 
         if alert_filter is not None:
             self.alert_filter = alert_filter
-        if forwarding_enabled is not None:
-            self.forwarding_enabled = forwarding_enabled
-        if forwarding_action_mappings is not None:
-            self.forwarding_action_mappings = forwarding_action_mappings
+        if alert_actions is not None:
+            self.alert_actions = alert_actions
         if callback_type is not None:
             self.callback_type = callback_type
-        if topic_arn is not None:
-            self.topic_arn = topic_arn
-        if region is not None:
-            self.region = region
+        if token is not None:
+            self.token = token
+        if subdomain is not None:
+            self.subdomain = subdomain
+        if notify is not None:
+            self.notify = notify
+        if rooms is not None:
+            self.rooms = rooms
 
     @property
     def alert_filter(self):
@@ -100,46 +104,25 @@ class CampfireIntegration(object):
         self._alert_filter = alert_filter
 
     @property
-    def forwarding_enabled(self):
-        """Gets the forwarding_enabled of this CampfireIntegration.  # noqa: E501
+    def alert_actions(self):
+        """Gets the alert_actions of this CampfireIntegration.  # noqa: E501
 
 
-        :return: The forwarding_enabled of this CampfireIntegration.  # noqa: E501
-        :rtype: bool
+        :return: The alert_actions of this CampfireIntegration.  # noqa: E501
+        :rtype: list[str]
         """
-        return self._forwarding_enabled
+        return self._alert_actions
 
-    @forwarding_enabled.setter
-    def forwarding_enabled(self, forwarding_enabled):
-        """Sets the forwarding_enabled of this CampfireIntegration.
-
-
-        :param forwarding_enabled: The forwarding_enabled of this CampfireIntegration.  # noqa: E501
-        :type: bool
-        """
-
-        self._forwarding_enabled = forwarding_enabled
-
-    @property
-    def forwarding_action_mappings(self):
-        """Gets the forwarding_action_mappings of this CampfireIntegration.  # noqa: E501
+    @alert_actions.setter
+    def alert_actions(self, alert_actions):
+        """Sets the alert_actions of this CampfireIntegration.
 
 
-        :return: The forwarding_action_mappings of this CampfireIntegration.  # noqa: E501
-        :rtype: list[ActionMapping]
-        """
-        return self._forwarding_action_mappings
-
-    @forwarding_action_mappings.setter
-    def forwarding_action_mappings(self, forwarding_action_mappings):
-        """Sets the forwarding_action_mappings of this CampfireIntegration.
-
-
-        :param forwarding_action_mappings: The forwarding_action_mappings of this CampfireIntegration.  # noqa: E501
-        :type: list[ActionMapping]
+        :param alert_actions: The alert_actions of this CampfireIntegration.  # noqa: E501
+        :type: list[str]
         """
 
-        self._forwarding_action_mappings = forwarding_action_mappings
+        self._alert_actions = alert_actions
 
     @property
     def callback_type(self):
@@ -159,7 +142,7 @@ class CampfireIntegration(object):
         :param callback_type: The callback_type of this CampfireIntegration.  # noqa: E501
         :type: str
         """
-        allowed_values = ["bidirectional-callback-new", "amazon-sns-callback"]  # noqa: E501
+        allowed_values = ["bidirectional-callback", "campfire-callback", "flowdock-callback", "flowdock-v2-callback", "planio-callback"]  # noqa: E501
         if callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `callback_type` ({0}), must be one of {1}"  # noqa: E501
@@ -169,46 +152,88 @@ class CampfireIntegration(object):
         self._callback_type = callback_type
 
     @property
-    def topic_arn(self):
-        """Gets the topic_arn of this CampfireIntegration.  # noqa: E501
+    def token(self):
+        """Gets the token of this CampfireIntegration.  # noqa: E501
 
 
-        :return: The topic_arn of this CampfireIntegration.  # noqa: E501
+        :return: The token of this CampfireIntegration.  # noqa: E501
         :rtype: str
         """
-        return self._topic_arn
+        return self._token
 
-    @topic_arn.setter
-    def topic_arn(self, topic_arn):
-        """Sets the topic_arn of this CampfireIntegration.
+    @token.setter
+    def token(self, token):
+        """Sets the token of this CampfireIntegration.
 
 
-        :param topic_arn: The topic_arn of this CampfireIntegration.  # noqa: E501
+        :param token: The token of this CampfireIntegration.  # noqa: E501
         :type: str
         """
 
-        self._topic_arn = topic_arn
+        self._token = token
 
     @property
-    def region(self):
-        """Gets the region of this CampfireIntegration.  # noqa: E501
+    def subdomain(self):
+        """Gets the subdomain of this CampfireIntegration.  # noqa: E501
 
 
-        :return: The region of this CampfireIntegration.  # noqa: E501
+        :return: The subdomain of this CampfireIntegration.  # noqa: E501
         :rtype: str
         """
-        return self._region
+        return self._subdomain
 
-    @region.setter
-    def region(self, region):
-        """Sets the region of this CampfireIntegration.
+    @subdomain.setter
+    def subdomain(self, subdomain):
+        """Sets the subdomain of this CampfireIntegration.
 
 
-        :param region: The region of this CampfireIntegration.  # noqa: E501
+        :param subdomain: The subdomain of this CampfireIntegration.  # noqa: E501
         :type: str
         """
 
-        self._region = region
+        self._subdomain = subdomain
+
+    @property
+    def notify(self):
+        """Gets the notify of this CampfireIntegration.  # noqa: E501
+
+
+        :return: The notify of this CampfireIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._notify
+
+    @notify.setter
+    def notify(self, notify):
+        """Sets the notify of this CampfireIntegration.
+
+
+        :param notify: The notify of this CampfireIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._notify = notify
+
+    @property
+    def rooms(self):
+        """Gets the rooms of this CampfireIntegration.  # noqa: E501
+
+
+        :return: The rooms of this CampfireIntegration.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._rooms
+
+    @rooms.setter
+    def rooms(self, rooms):
+        """Sets the rooms of this CampfireIntegration.
+
+
+        :param rooms: The rooms of this CampfireIntegration.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._rooms = rooms
 
     def to_dict(self):
         """Returns the model properties as a dict"""

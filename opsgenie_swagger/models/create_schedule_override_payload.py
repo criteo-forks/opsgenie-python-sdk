@@ -59,7 +59,8 @@ class CreateScheduleOverridePayload(object):
         self._rotations = None
         self.discriminator = None
 
-        self.alias = alias
+        if alias is not None:
+            self.alias = alias
         self.user = user
         self.start_date = start_date
         self.end_date = end_date
@@ -86,8 +87,6 @@ class CreateScheduleOverridePayload(object):
         :param alias: The alias of this CreateScheduleOverridePayload.  # noqa: E501
         :type: str
         """
-        if alias is None:
-            raise ValueError("Invalid value for `alias`, must not be `None`")  # noqa: E501
 
         self._alias = alias
 

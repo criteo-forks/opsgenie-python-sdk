@@ -17,6 +17,8 @@ import re  # noqa: F401
 import six
 
 from opsgenie_swagger.models.filter import Filter  # noqa: F401,E501
+from opsgenie_swagger.models.policy import Policy  # noqa: F401,E501
+from opsgenie_swagger.models.responder import Responder  # noqa: F401,E501
 from opsgenie_swagger.models.time_restriction_interval import TimeRestrictionInterval  # noqa: F401,E501
 
 
@@ -34,232 +36,468 @@ class AlertPolicy(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str',
-        'name': 'str',
-        'policy_description': 'str',
-        'filter': 'Filter',
-        'time_restrictions': 'TimeRestrictionInterval',
-        'enabled': 'bool',
-        'type': 'str'
+        'ignore_original_actions': 'bool',
+        'ignore_original_details': 'bool',
+        'ignore_original_responders': 'bool',
+        'ignore_original_tags': 'bool',
+        'ignore_original_teams': 'bool',
+        '_continue': 'bool',
+        'alias': 'str',
+        'description': 'str',
+        'entity': 'str',
+        'message': 'str',
+        'source': 'str',
+        'actions': 'list[str]',
+        'responders': 'list[Responder]',
+        'tags': 'list[str]',
+        'details': 'dict(str, str)',
+        'priority': 'str'
     }
 
     attribute_map = {
-        'id': 'id',
-        'name': 'name',
-        'policy_description': 'policyDescription',
-        'filter': 'filter',
-        'time_restrictions': 'timeRestrictions',
-        'enabled': 'enabled',
-        'type': 'type'
+        'ignore_original_actions': 'ignoreOriginalActions',
+        'ignore_original_details': 'ignoreOriginalDetails',
+        'ignore_original_responders': 'ignoreOriginalResponders',
+        'ignore_original_tags': 'ignoreOriginalTags',
+        'ignore_original_teams': 'ignoreOriginalTeams',
+        '_continue': 'continue',
+        'alias': 'alias',
+        'description': 'description',
+        'entity': 'entity',
+        'message': 'message',
+        'source': 'source',
+        'actions': 'actions',
+        'responders': 'responders',
+        'tags': 'tags',
+        'details': 'details',
+        'priority': 'priority'
     }
 
-    discriminator_value_class_map = {
-        'notification-delay': 'NotificationDelayAlertPolicy',
-        'auto-restart-notifications': 'AutoRestartNotificationsAlertPolicy',
-        'notification-deduplication': 'NotificationDeduplicationAlertPolicy',
-        'auto-close': 'AutoCloseAlertPolicy',
-        'notification-suppress': 'NotificationSuppressAlertPolicy',
-        'notification-renotify': 'NotificationRenotifyAlertPolicy',
-        'modify': 'ModifyAlertPolicy'
-    }
-
-    def __init__(self, id=None, name=None, policy_description=None, filter=None, time_restrictions=None, enabled=None, type=None):  # noqa: E501
+    def __init__(self, ignore_original_actions=None, ignore_original_details=None, ignore_original_responders=None, ignore_original_tags=None, ignore_original_teams=None, _continue=None, alias=None, description=None, entity=None, message=None, source=None, actions=None, responders=None, tags=None, details=None, priority=None):  # noqa: E501
         """AlertPolicy - a model defined in Swagger"""  # noqa: E501
 
-        self._id = None
-        self._name = None
-        self._policy_description = None
-        self._filter = None
-        self._time_restrictions = None
-        self._enabled = None
-        self._type = None
-        self.discriminator = 'type'
+        self._ignore_original_actions = None
+        self._ignore_original_details = None
+        self._ignore_original_responders = None
+        self._ignore_original_tags = None
+        self._ignore_original_teams = None
+        self.__continue = None
+        self._alias = None
+        self._description = None
+        self._entity = None
+        self._message = None
+        self._source = None
+        self._actions = None
+        self._responders = None
+        self._tags = None
+        self._details = None
+        self._priority = None
+        self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if name is not None:
-            self.name = name
-        if policy_description is not None:
-            self.policy_description = policy_description
-        if filter is not None:
-            self.filter = filter
-        if time_restrictions is not None:
-            self.time_restrictions = time_restrictions
-        if enabled is not None:
-            self.enabled = enabled
-        self.type = type
-
-    @property
-    def id(self):
-        """Gets the id of this AlertPolicy.  # noqa: E501
-
-
-        :return: The id of this AlertPolicy.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this AlertPolicy.
-
-
-        :param id: The id of this AlertPolicy.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
-
-    @property
-    def name(self):
-        """Gets the name of this AlertPolicy.  # noqa: E501
-
-        Name of the policy  # noqa: E501
-
-        :return: The name of this AlertPolicy.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this AlertPolicy.
-
-        Name of the policy  # noqa: E501
-
-        :param name: The name of this AlertPolicy.  # noqa: E501
-        :type: str
-        """
-
-        self._name = name
+        if ignore_original_actions is not None:
+            self.ignore_original_actions = ignore_original_actions
+        if ignore_original_details is not None:
+            self.ignore_original_details = ignore_original_details
+        if ignore_original_responders is not None:
+            self.ignore_original_responders = ignore_original_responders
+        if ignore_original_tags is not None:
+            self.ignore_original_tags = ignore_original_tags
+        if ignore_original_teams is not None:
+            self.ignore_original_teams = ignore_original_teams
+        if _continue is not None:
+            self._continue = _continue
+        if alias is not None:
+            self.alias = alias
+        if description is not None:
+            self.description = description
+        if entity is not None:
+            self.entity = entity
+        if message is not None:
+            self.message = message
+        if source is not None:
+            self.source = source
+        if actions is not None:
+            self.actions = actions
+        if responders is not None:
+            self.responders = responders
+        if tags is not None:
+            self.tags = tags
+        if details is not None:
+            self.details = details
+        if priority is not None:
+            self.priority = priority
 
     @property
-    def policy_description(self):
-        """Gets the policy_description of this AlertPolicy.  # noqa: E501
+    def ignore_original_actions(self):
+        """Gets the ignore_original_actions of this AlertPolicy.  # noqa: E501
 
-        Description of the policy  # noqa: E501
 
-        :return: The policy_description of this AlertPolicy.  # noqa: E501
-        :rtype: str
-        """
-        return self._policy_description
-
-    @policy_description.setter
-    def policy_description(self, policy_description):
-        """Sets the policy_description of this AlertPolicy.
-
-        Description of the policy  # noqa: E501
-
-        :param policy_description: The policy_description of this AlertPolicy.  # noqa: E501
-        :type: str
-        """
-
-        self._policy_description = policy_description
-
-    @property
-    def filter(self):
-        """Gets the filter of this AlertPolicy.  # noqa: E501
-
-        Conditions specified in this field must be met for this policy to work  # noqa: E501
-
-        :return: The filter of this AlertPolicy.  # noqa: E501
-        :rtype: Filter
-        """
-        return self._filter
-
-    @filter.setter
-    def filter(self, filter):
-        """Sets the filter of this AlertPolicy.
-
-        Conditions specified in this field must be met for this policy to work  # noqa: E501
-
-        :param filter: The filter of this AlertPolicy.  # noqa: E501
-        :type: Filter
-        """
-
-        self._filter = filter
-
-    @property
-    def time_restrictions(self):
-        """Gets the time_restrictions of this AlertPolicy.  # noqa: E501
-
-        Time restrictions specified in this field must be met for this policy to work  # noqa: E501
-
-        :return: The time_restrictions of this AlertPolicy.  # noqa: E501
-        :rtype: TimeRestrictionInterval
-        """
-        return self._time_restrictions
-
-    @time_restrictions.setter
-    def time_restrictions(self, time_restrictions):
-        """Sets the time_restrictions of this AlertPolicy.
-
-        Time restrictions specified in this field must be met for this policy to work  # noqa: E501
-
-        :param time_restrictions: The time_restrictions of this AlertPolicy.  # noqa: E501
-        :type: TimeRestrictionInterval
-        """
-
-        self._time_restrictions = time_restrictions
-
-    @property
-    def enabled(self):
-        """Gets the enabled of this AlertPolicy.  # noqa: E501
-
-        Activity status of the alert policy  # noqa: E501
-
-        :return: The enabled of this AlertPolicy.  # noqa: E501
+        :return: The ignore_original_actions of this AlertPolicy.  # noqa: E501
         :rtype: bool
         """
-        return self._enabled
+        return self._ignore_original_actions
 
-    @enabled.setter
-    def enabled(self, enabled):
-        """Sets the enabled of this AlertPolicy.
+    @ignore_original_actions.setter
+    def ignore_original_actions(self, ignore_original_actions):
+        """Sets the ignore_original_actions of this AlertPolicy.
 
-        Activity status of the alert policy  # noqa: E501
 
-        :param enabled: The enabled of this AlertPolicy.  # noqa: E501
+        :param ignore_original_actions: The ignore_original_actions of this AlertPolicy.  # noqa: E501
         :type: bool
         """
 
-        self._enabled = enabled
+        self._ignore_original_actions = ignore_original_actions
 
     @property
-    def type(self):
-        """Gets the type of this AlertPolicy.  # noqa: E501
+    def ignore_original_details(self):
+        """Gets the ignore_original_details of this AlertPolicy.  # noqa: E501
 
-        Type of the policy  # noqa: E501
+        If set to true, policy will ignore the original details of the alert. Default value is false  # noqa: E501
 
-        :return: The type of this AlertPolicy.  # noqa: E501
+        :return: The ignore_original_details of this AlertPolicy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_original_details
+
+    @ignore_original_details.setter
+    def ignore_original_details(self, ignore_original_details):
+        """Sets the ignore_original_details of this AlertPolicy.
+
+        If set to true, policy will ignore the original details of the alert. Default value is false  # noqa: E501
+
+        :param ignore_original_details: The ignore_original_details of this AlertPolicy.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_original_details = ignore_original_details
+
+    @property
+    def ignore_original_responders(self):
+        """Gets the ignore_original_responders of this AlertPolicy.  # noqa: E501
+
+        If set to true, policy will ignore the original responders of the alert. Default value is false  # noqa: E501
+
+        :return: The ignore_original_responders of this AlertPolicy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_original_responders
+
+    @ignore_original_responders.setter
+    def ignore_original_responders(self, ignore_original_responders):
+        """Sets the ignore_original_responders of this AlertPolicy.
+
+        If set to true, policy will ignore the original responders of the alert. Default value is false  # noqa: E501
+
+        :param ignore_original_responders: The ignore_original_responders of this AlertPolicy.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_original_responders = ignore_original_responders
+
+    @property
+    def ignore_original_tags(self):
+        """Gets the ignore_original_tags of this AlertPolicy.  # noqa: E501
+
+        If set to true, policy will ignore the original tags of the alert. Default value is false  # noqa: E501
+
+        :return: The ignore_original_tags of this AlertPolicy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_original_tags
+
+    @ignore_original_tags.setter
+    def ignore_original_tags(self, ignore_original_tags):
+        """Sets the ignore_original_tags of this AlertPolicy.
+
+        If set to true, policy will ignore the original tags of the alert. Default value is false  # noqa: E501
+
+        :param ignore_original_tags: The ignore_original_tags of this AlertPolicy.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_original_tags = ignore_original_tags
+
+    @property
+    def ignore_original_teams(self):
+        """Gets the ignore_original_teams of this AlertPolicy.  # noqa: E501
+
+        If set to true, policy will ignore the original teams of the alert. Default value is false  # noqa: E501
+
+        :return: The ignore_original_teams of this AlertPolicy.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ignore_original_teams
+
+    @ignore_original_teams.setter
+    def ignore_original_teams(self, ignore_original_teams):
+        """Sets the ignore_original_teams of this AlertPolicy.
+
+        If set to true, policy will ignore the original teams of the alert. Default value is false  # noqa: E501
+
+        :param ignore_original_teams: The ignore_original_teams of this AlertPolicy.  # noqa: E501
+        :type: bool
+        """
+
+        self._ignore_original_teams = ignore_original_teams
+
+    @property
+    def _continue(self):
+        """Gets the _continue of this AlertPolicy.  # noqa: E501
+
+        Will continue with other modify policies if set to true  # noqa: E501
+
+        :return: The _continue of this AlertPolicy.  # noqa: E501
+        :rtype: bool
+        """
+        return self.__continue
+
+    @_continue.setter
+    def _continue(self, _continue):
+        """Sets the _continue of this AlertPolicy.
+
+        Will continue with other modify policies if set to true  # noqa: E501
+
+        :param _continue: The _continue of this AlertPolicy.  # noqa: E501
+        :type: bool
+        """
+
+        self.__continue = _continue
+
+    @property
+    def alias(self):
+        """Gets the alias of this AlertPolicy.  # noqa: E501
+
+        Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}  # noqa: E501
+
+        :return: The alias of this AlertPolicy.  # noqa: E501
         :rtype: str
         """
-        return self._type
+        return self._alias
 
-    @type.setter
-    def type(self, type):
-        """Sets the type of this AlertPolicy.
+    @alias.setter
+    def alias(self, alias):
+        """Sets the alias of this AlertPolicy.
 
-        Type of the policy  # noqa: E501
+        Alias of the alert. You can use {{alias}} to refer to the original alias. Default value is {{alias}}  # noqa: E501
 
-        :param type: The type of this AlertPolicy.  # noqa: E501
+        :param alias: The alias of this AlertPolicy.  # noqa: E501
         :type: str
         """
-        if type is None:
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["modify", "auto-close", "notification-delay", "notification-deduplication", "notification-suppress", "notification-renotify", "auto-restart-notifications"]  # noqa: E501
-        if type not in allowed_values:
+
+        self._alias = alias
+
+    @property
+    def description(self):
+        """Gets the description of this AlertPolicy.  # noqa: E501
+
+        Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}  # noqa: E501
+
+        :return: The description of this AlertPolicy.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this AlertPolicy.
+
+        Description of the alert. You can use {{description}} to refer to the original alert description. Default value is {{description}}  # noqa: E501
+
+        :param description: The description of this AlertPolicy.  # noqa: E501
+        :type: str
+        """
+
+        self._description = description
+
+    @property
+    def entity(self):
+        """Gets the entity of this AlertPolicy.  # noqa: E501
+
+        Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}  # noqa: E501
+
+        :return: The entity of this AlertPolicy.  # noqa: E501
+        :rtype: str
+        """
+        return self._entity
+
+    @entity.setter
+    def entity(self, entity):
+        """Sets the entity of this AlertPolicy.
+
+        Entity field of the alert. You can use {{entity}} to refer to the original entity. Default value is {{entity}}  # noqa: E501
+
+        :param entity: The entity of this AlertPolicy.  # noqa: E501
+        :type: str
+        """
+
+        self._entity = entity
+
+    @property
+    def message(self):
+        """Gets the message of this AlertPolicy.  # noqa: E501
+
+        Message of the alert  # noqa: E501
+
+        :return: The message of this AlertPolicy.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this AlertPolicy.
+
+        Message of the alert  # noqa: E501
+
+        :param message: The message of this AlertPolicy.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
+
+    @property
+    def source(self):
+        """Gets the source of this AlertPolicy.  # noqa: E501
+
+        Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}  # noqa: E501
+
+        :return: The source of this AlertPolicy.  # noqa: E501
+        :rtype: str
+        """
+        return self._source
+
+    @source.setter
+    def source(self, source):
+        """Sets the source of this AlertPolicy.
+
+        Source field of the alert. You can use {{source}} to refer to the original source. Default value is {{source}}  # noqa: E501
+
+        :param source: The source of this AlertPolicy.  # noqa: E501
+        :type: str
+        """
+
+        self._source = source
+
+    @property
+    def actions(self):
+        """Gets the actions of this AlertPolicy.  # noqa: E501
+
+        Alert actions as a list of strings to add to the alerts original actions value. If ignoreOriginalActions field is set to true, this will replace the original actions.  # noqa: E501
+
+        :return: The actions of this AlertPolicy.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._actions
+
+    @actions.setter
+    def actions(self, actions):
+        """Sets the actions of this AlertPolicy.
+
+        Alert actions as a list of strings to add to the alerts original actions value. If ignoreOriginalActions field is set to true, this will replace the original actions.  # noqa: E501
+
+        :param actions: The actions of this AlertPolicy.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._actions = actions
+
+    @property
+    def responders(self):
+        """Gets the responders of this AlertPolicy.  # noqa: E501
+
+        Responders to add to the alerts original responders value as a list of teams or users. If ignoreOriginalResponders field is set to true, this will replace the original responders.  # noqa: E501
+
+        :return: The responders of this AlertPolicy.  # noqa: E501
+        :rtype: list[Responder]
+        """
+        return self._responders
+
+    @responders.setter
+    def responders(self, responders):
+        """Sets the responders of this AlertPolicy.
+
+        Responders to add to the alerts original responders value as a list of teams or users. If ignoreOriginalResponders field is set to true, this will replace the original responders.  # noqa: E501
+
+        :param responders: The responders of this AlertPolicy.  # noqa: E501
+        :type: list[Responder]
+        """
+
+        self._responders = responders
+
+    @property
+    def tags(self):
+        """Gets the tags of this AlertPolicy.  # noqa: E501
+
+        Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalTags field is set to true, this will replace the original tags.  # noqa: E501
+
+        :return: The tags of this AlertPolicy.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this AlertPolicy.
+
+        Tags to add to the alerts original tags value as a list of strings. If ignoreOriginalTags field is set to true, this will replace the original tags.  # noqa: E501
+
+        :param tags: The tags of this AlertPolicy.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
+
+    @property
+    def details(self):
+        """Gets the details of this AlertPolicy.  # noqa: E501
+
+        Custom properties to add to the alerts original details value as a list of strings. If ignoreOriginalDetails field is set to true, this will replace the original details.  # noqa: E501
+
+        :return: The details of this AlertPolicy.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._details
+
+    @details.setter
+    def details(self, details):
+        """Sets the details of this AlertPolicy.
+
+        Custom properties to add to the alerts original details value as a list of strings. If ignoreOriginalDetails field is set to true, this will replace the original details.  # noqa: E501
+
+        :param details: The details of this AlertPolicy.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._details = details
+
+    @property
+    def priority(self):
+        """Gets the priority of this AlertPolicy.  # noqa: E501
+
+        Priority level of the alert  # noqa: E501
+
+        :return: The priority of this AlertPolicy.  # noqa: E501
+        :rtype: str
+        """
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        """Sets the priority of this AlertPolicy.
+
+        Priority level of the alert  # noqa: E501
+
+        :param priority: The priority of this AlertPolicy.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["P1", "P2", "P3", "P4", "P5"]  # noqa: E501
+        if priority not in allowed_values:
             raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
+                "Invalid value for `priority` ({0}), must be one of {1}"  # noqa: E501
+                .format(priority, allowed_values)
             )
 
-        self._type = type
-
-    def get_real_child_model(self, data):
-        """Returns the real base class specified by the discriminator"""
-        discriminator_value = data[self.discriminator].lower()
-        return self.discriminator_value_class_map.get(discriminator_value)
+        self._priority = priority
 
     def to_dict(self):
         """Returns the model properties as a dict"""

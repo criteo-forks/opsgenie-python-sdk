@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **callback_type** | **str** |  | [optional] 
 **topic_arn** | **str** |  | [optional] 
 **region** | **str** |  | [optional] 
+**new_conf_type** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -16,6 +16,7 @@ import re  # noqa: F401
 
 import six
 
+from opsgenie_swagger.models.escalation_repeat import EscalationRepeat  # noqa: F401,E501
 from opsgenie_swagger.models.escalation_rule import EscalationRule  # noqa: F401,E501
 from opsgenie_swagger.models.team_meta import TeamMeta  # noqa: F401,E501
 
@@ -38,7 +39,8 @@ class Escalation(object):
         'name': 'str',
         'description': 'str',
         'owner_team': 'TeamMeta',
-        'rules': 'list[EscalationRule]'
+        'rules': 'list[EscalationRule]',
+        'repeat': 'EscalationRepeat'
     }
 
     attribute_map = {
@@ -46,10 +48,11 @@ class Escalation(object):
         'name': 'name',
         'description': 'description',
         'owner_team': 'ownerTeam',
-        'rules': 'rules'
+        'rules': 'rules',
+        'repeat': 'repeat'
     }
 
-    def __init__(self, id=None, name=None, description=None, owner_team=None, rules=None):  # noqa: E501
+    def __init__(self, id=None, name=None, description=None, owner_team=None, rules=None, repeat=None):  # noqa: E501
         """Escalation - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -57,6 +60,7 @@ class Escalation(object):
         self._description = None
         self._owner_team = None
         self._rules = None
+        self._repeat = None
         self.discriminator = None
 
         if id is not None:
@@ -69,6 +73,8 @@ class Escalation(object):
             self.owner_team = owner_team
         if rules is not None:
             self.rules = rules
+        if repeat is not None:
+            self.repeat = repeat
 
     @property
     def id(self):
@@ -174,6 +180,27 @@ class Escalation(object):
         """
 
         self._rules = rules
+
+    @property
+    def repeat(self):
+        """Gets the repeat of this Escalation.  # noqa: E501
+
+
+        :return: The repeat of this Escalation.  # noqa: E501
+        :rtype: EscalationRepeat
+        """
+        return self._repeat
+
+    @repeat.setter
+    def repeat(self, repeat):
+        """Sets the repeat of this Escalation.
+
+
+        :param repeat: The repeat of this Escalation.  # noqa: E501
+        :type: EscalationRepeat
+        """
+
+        self._repeat = repeat
 
     def to_dict(self):
         """Returns the model properties as a dict"""

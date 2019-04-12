@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import opsgenie_swagger
-from opsgenie_swagger.models.op5_integration import Op5Integration  # noqa: E501
+from opsgenie_swagger.models.op5_integration import OP5Integration  # noqa: E501
 from opsgenie_swagger.rest import ApiException
 
 
-class TestOp5Integration(unittest.TestCase):
-    """Op5Integration unit test stubs"""
+class TestOP5Integration(unittest.TestCase):
+    """OP5Integration unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestOp5Integration(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testOp5Integration(self):
-        """Test Op5Integration"""
+    def testOP5Integration(self):
+        """Test OP5Integration"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = opsgenie_swagger.models.op5_integration.Op5Integration()  # noqa: E501
+        # model = opsgenie_swagger.models.op5_integration.OP5Integration()  # noqa: E501
         pass
 
 

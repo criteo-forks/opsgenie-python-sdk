@@ -42,6 +42,7 @@ class CreateAlertPayload(object):
         'alias': 'str',
         'description': 'str',
         'teams': 'list[TeamRecipient]',
+        'responders': 'list[Recipient]',
         'visible_to': 'list[Recipient]',
         'actions': 'list[str]',
         'tags': 'list[str]',
@@ -58,6 +59,7 @@ class CreateAlertPayload(object):
         'alias': 'alias',
         'description': 'description',
         'teams': 'teams',
+        'responders': 'responders',
         'visible_to': 'visibleTo',
         'actions': 'actions',
         'tags': 'tags',
@@ -66,7 +68,7 @@ class CreateAlertPayload(object):
         'priority': 'priority'
     }
 
-    def __init__(self, user=None, note=None, source=None, message=None, alias=None, description=None, teams=None, visible_to=None, actions=None, tags=None, details=None, entity=None, priority=None):  # noqa: E501
+    def __init__(self, user=None, note=None, source=None, message=None, alias=None, description=None, teams=None, responders=None, visible_to=None, actions=None, tags=None, details=None, entity=None, priority=None):  # noqa: E501
         """CreateAlertPayload - a model defined in Swagger"""  # noqa: E501
 
         self._user = None
@@ -76,6 +78,7 @@ class CreateAlertPayload(object):
         self._alias = None
         self._description = None
         self._teams = None
+        self._responders = None
         self._visible_to = None
         self._actions = None
         self._tags = None
@@ -97,6 +100,8 @@ class CreateAlertPayload(object):
             self.description = description
         if teams is not None:
             self.teams = teams
+        if responders is not None:
+            self.responders = responders
         if visible_to is not None:
             self.visible_to = visible_to
         if actions is not None:
@@ -272,6 +277,29 @@ class CreateAlertPayload(object):
         """
 
         self._teams = teams
+
+    @property
+    def responders(self):
+        """Gets the responders of this CreateAlertPayload.  # noqa: E501
+
+        Responders that the alert will be routed to send notifications  # noqa: E501
+
+        :return: The responders of this CreateAlertPayload.  # noqa: E501
+        :rtype: list[Recipient]
+        """
+        return self._responders
+
+    @responders.setter
+    def responders(self, responders):
+        """Sets the responders of this CreateAlertPayload.
+
+        Responders that the alert will be routed to send notifications  # noqa: E501
+
+        :param responders: The responders of this CreateAlertPayload.  # noqa: E501
+        :type: list[Recipient]
+        """
+
+        self._responders = responders
 
     @property
     def visible_to(self):

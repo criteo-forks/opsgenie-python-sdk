@@ -16,8 +16,9 @@ import re  # noqa: F401
 
 import six
 
+from opsgenie_swagger.models.action_mapping import ActionMapping  # noqa: F401,E501
 from opsgenie_swagger.models.alert_filter import AlertFilter  # noqa: F401,E501
-from opsgenie_swagger.models.outgoing_callback import OutgoingCallback  # noqa: F401,E501
+from opsgenie_swagger.models.base_webhook_callback import BaseWebhookCallback  # noqa: F401,E501
 
 
 class WebhookCallback(object):
@@ -34,68 +35,14 @@ class WebhookCallback(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'url': 'str',
-        'headers': 'dict(str, str)'
     }
 
     attribute_map = {
-        'url': 'url',
-        'headers': 'headers'
     }
 
-    def __init__(self, url=None, headers=None):  # noqa: E501
+    def __init__(self):  # noqa: E501
         """WebhookCallback - a model defined in Swagger"""  # noqa: E501
-
-        self._url = None
-        self._headers = None
         self.discriminator = None
-
-        if url is not None:
-            self.url = url
-        if headers is not None:
-            self.headers = headers
-
-    @property
-    def url(self):
-        """Gets the url of this WebhookCallback.  # noqa: E501
-
-
-        :return: The url of this WebhookCallback.  # noqa: E501
-        :rtype: str
-        """
-        return self._url
-
-    @url.setter
-    def url(self, url):
-        """Sets the url of this WebhookCallback.
-
-
-        :param url: The url of this WebhookCallback.  # noqa: E501
-        :type: str
-        """
-
-        self._url = url
-
-    @property
-    def headers(self):
-        """Gets the headers of this WebhookCallback.  # noqa: E501
-
-
-        :return: The headers of this WebhookCallback.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._headers
-
-    @headers.setter
-    def headers(self, headers):
-        """Sets the headers of this WebhookCallback.
-
-
-        :param headers: The headers of this WebhookCallback.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._headers = headers
 
     def to_dict(self):
         """Returns the model properties as a dict"""

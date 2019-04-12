@@ -19,6 +19,7 @@ import six
 from opsgenie_swagger.models.alert_integration import AlertIntegration  # noqa: F401,E501
 from opsgenie_swagger.models.alert_report import AlertReport  # noqa: F401,E501
 from opsgenie_swagger.models.alert_team_meta import AlertTeamMeta  # noqa: F401,E501
+from opsgenie_swagger.models.recipient import Recipient  # noqa: F401,E501
 
 
 class BaseAlert(object):
@@ -53,6 +54,7 @@ class BaseAlert(object):
         'owner': 'str',
         'priority': 'str',
         'teams': 'list[AlertTeamMeta]',
+        'responders': 'list[Recipient]',
         'integration': 'AlertIntegration',
         'report': 'AlertReport'
     }
@@ -76,11 +78,12 @@ class BaseAlert(object):
         'owner': 'owner',
         'priority': 'priority',
         'teams': 'teams',
+        'responders': 'responders',
         'integration': 'integration',
         'report': 'report'
     }
 
-    def __init__(self, id=None, tiny_id=None, alias=None, message=None, status=None, acknowledged=None, is_seen=None, tags=None, snoozed=None, snoozed_until=None, count=None, last_occurred_at=None, created_at=None, updated_at=None, source=None, owner=None, priority=None, teams=None, integration=None, report=None):  # noqa: E501
+    def __init__(self, id=None, tiny_id=None, alias=None, message=None, status=None, acknowledged=None, is_seen=None, tags=None, snoozed=None, snoozed_until=None, count=None, last_occurred_at=None, created_at=None, updated_at=None, source=None, owner=None, priority=None, teams=None, responders=None, integration=None, report=None):  # noqa: E501
         """BaseAlert - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -101,6 +104,7 @@ class BaseAlert(object):
         self._owner = None
         self._priority = None
         self._teams = None
+        self._responders = None
         self._integration = None
         self._report = None
         self.discriminator = None
@@ -140,6 +144,8 @@ class BaseAlert(object):
             self.priority = priority
         if teams is not None:
             self.teams = teams
+        if responders is not None:
+            self.responders = responders
         if integration is not None:
             self.integration = integration
         if report is not None:
@@ -524,6 +530,27 @@ class BaseAlert(object):
         """
 
         self._teams = teams
+
+    @property
+    def responders(self):
+        """Gets the responders of this BaseAlert.  # noqa: E501
+
+
+        :return: The responders of this BaseAlert.  # noqa: E501
+        :rtype: list[Recipient]
+        """
+        return self._responders
+
+    @responders.setter
+    def responders(self, responders):
+        """Sets the responders of this BaseAlert.
+
+
+        :param responders: The responders of this BaseAlert.  # noqa: E501
+        :type: list[Recipient]
+        """
+
+        self._responders = responders
 
     @property
     def integration(self):

@@ -94,7 +94,7 @@ class BidirectionalCallback(object):
         :param bidirectional_callback_type: The bidirectional_callback_type of this BidirectionalCallback.  # noqa: E501
         :type: str
         """
-        allowed_values = ["datadog-callback", "circonus-callback", "connect-wise-callback", "desk-callback", "es-watcher-callback", "freshdesk-callback", "hipchat-callback", "marid-callback", "logic-monitor-callback", "mattermost-callback", "slack-callback", "solarwinds-web-helpdesk-callback", "stackdriver-callback", "status-io-callback"]  # noqa: E501
+        allowed_values = ["circonus-callback", "connect-wise-callback", "datadog-callback", "desk-callback", "es-watcher-callback", "hip-chat-add-on-callback", "hip-chat-callback-v2", "icinga2-callback", "icinga-callback", "logic-monitor-callback", "marid-callback", "mattermost-callback", "nagios-based-v1-callback", "nagios-based-v2-callback", "nagios-xiv1-callback", "nagios-xiv2-callback", "slack-app-callback", "slack-callback", "solarwinds-callback", "solar-winds-web-help-desk-callback", "stackdriver-callback", "status-io-callback", "track-it-callback", "xmpp-callback", "zabbix-callback", "zenoss-callback"]  # noqa: E501
         if bidirectional_callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `bidirectional_callback_type` ({0}), must be one of {1}"  # noqa: E501

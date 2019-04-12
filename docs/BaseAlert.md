@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **owner** | **str** |  | [optional] 
 **priority** | **str** |  | [optional] 
 **teams** | [**list[AlertTeamMeta]**](AlertTeamMeta.md) |  | [optional] 
+**responders** | [**list[Recipient]**](Recipient.md) |  | [optional] 
 **integration** | [**AlertIntegration**](AlertIntegration.md) |  | [optional] 
 **report** | [**AlertReport**](AlertReport.md) |  | [optional] 
 

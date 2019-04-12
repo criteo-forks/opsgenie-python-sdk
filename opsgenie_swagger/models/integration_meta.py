@@ -34,23 +34,26 @@ class IntegrationMeta(object):
         'id': 'str',
         'name': 'str',
         'enabled': 'bool',
-        'type': 'str'
+        'type': 'str',
+        'team_id': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'name': 'name',
         'enabled': 'enabled',
-        'type': 'type'
+        'type': 'type',
+        'team_id': 'teamId'
     }
 
-    def __init__(self, id=None, name=None, enabled=None, type=None):  # noqa: E501
+    def __init__(self, id=None, name=None, enabled=None, type=None, team_id=None):  # noqa: E501
         """IntegrationMeta - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
         self._name = None
         self._enabled = None
         self._type = None
+        self._team_id = None
         self.discriminator = None
 
         if id is not None:
@@ -61,6 +64,8 @@ class IntegrationMeta(object):
             self.enabled = enabled
         if type is not None:
             self.type = type
+        if team_id is not None:
+            self.team_id = team_id
 
     @property
     def id(self):
@@ -145,6 +150,27 @@ class IntegrationMeta(object):
         """
 
         self._type = type
+
+    @property
+    def team_id(self):
+        """Gets the team_id of this IntegrationMeta.  # noqa: E501
+
+
+        :return: The team_id of this IntegrationMeta.  # noqa: E501
+        :rtype: str
+        """
+        return self._team_id
+
+    @team_id.setter
+    def team_id(self, team_id):
+        """Sets the team_id of this IntegrationMeta.
+
+
+        :param team_id: The team_id of this IntegrationMeta.  # noqa: E501
+        :type: str
+        """
+
+        self._team_id = team_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

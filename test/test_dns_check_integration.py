@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import opsgenie_swagger
-from opsgenie_swagger.models.dns_check_integration import DNSCheckIntegration  # noqa: E501
+from opsgenie_swagger.models.dns_check_integration import DnsCheckIntegration  # noqa: E501
 from opsgenie_swagger.rest import ApiException
 
 
-class TestDNSCheckIntegration(unittest.TestCase):
-    """DNSCheckIntegration unit test stubs"""
+class TestDnsCheckIntegration(unittest.TestCase):
+    """DnsCheckIntegration unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestDNSCheckIntegration(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testDNSCheckIntegration(self):
-        """Test DNSCheckIntegration"""
+    def testDnsCheckIntegration(self):
+        """Test DnsCheckIntegration"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = opsgenie_swagger.models.dns_check_integration.DNSCheckIntegration()  # noqa: E501
+        # model = opsgenie_swagger.models.dns_check_integration.DnsCheckIntegration()  # noqa: E501
         pass
 
 

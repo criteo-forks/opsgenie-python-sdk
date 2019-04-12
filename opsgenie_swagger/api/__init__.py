@@ -6,6 +6,8 @@ from __future__ import absolute_import
 from opsgenie_swagger.api.account_api import AccountApi
 from opsgenie_swagger.api.alert_api import AlertApi
 from opsgenie_swagger.api.contact_api import ContactApi
+from opsgenie_swagger.api.custom_user_role_api import CustomUserRoleApi
+from opsgenie_swagger.api.deprecated_policy_api import DeprecatedPolicyApi
 from opsgenie_swagger.api.escalation_api import EscalationApi
 from opsgenie_swagger.api.forwarding_rule_api import ForwardingRuleApi
 from opsgenie_swagger.api.heartbeat_api import HeartbeatApi
@@ -20,6 +22,7 @@ from opsgenie_swagger.api.schedule_override_api import ScheduleOverrideApi
 from opsgenie_swagger.api.schedule_rotation_api import ScheduleRotationApi
 from opsgenie_swagger.api.team_api import TeamApi
 from opsgenie_swagger.api.team_member_api import TeamMemberApi
+from opsgenie_swagger.api.team_role_api import TeamRoleApi
 from opsgenie_swagger.api.team_routing_rule_api import TeamRoutingRuleApi
 from opsgenie_swagger.api.user_api import UserApi
 from opsgenie_swagger.api.who_is_on_call_api import WhoIsOnCallApi

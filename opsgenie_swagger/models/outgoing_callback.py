@@ -45,25 +45,37 @@ class OutgoingCallback(object):
     }
 
     discriminator_value_class_map = {
+        'nagios-based-v2-callback': 'NagiosBasedV2Callback',
+        'icinga-callback': 'IcingaCallback',
         'campfire-callback': 'CampfireCallback',
         'flowdock-callback': 'FlowdockCallback',
+        'icinga2-callback': 'Icinga2Callback',
         'es-watcher-callback': 'XPackAlertingCallback',
         'datadog-callback': 'DatadogCallback',
         'circonus-callback': 'CirconusCallback',
         'planio-callback': 'PlanioCallback',
-        'solarwinds-web-helpdesk-callback': 'SolarWindsWebHelpDeskCallback',
-        'freshdesk-callback': 'FreshdeskCallback',
+        'track-it-callback': 'TrackItCallback',
+        'xmpp-callback': 'XmppCallback',
+        'solar-winds-web-help-desk-callback': 'SolarWindsWebHelpDeskCallback',
         'status-io-callback': 'StatusIOCallback',
         'mattermost-callback': 'MattermostCallback',
+        'nagios-xiv1-callback': 'NagiosXIV1Callback',
         'connect-wise-callback': 'ConnectWiseCallback',
-        'webhook-callback': 'WebhookCallback',
         'logic-monitor-callback': 'LogicMonitorCallback',
         'marid-callback': 'MaridCallback',
+        'zenoss-callback': 'ZenossCallback',
+        'slack-app-callback': 'SlackAppCallback',
         'desk-callback': 'DeskCallback',
         'bidirectional-callback': 'BidirectionalCallback',
-        'hipchat-callback': 'HipchatCallback',
+        'hip-chat-add-on-callback': 'HipChatAddOnCallback',
+        'nagios-based-v1-callback': 'NagiosBasedV1Callback',
+        'nagios-xiv2-callback': 'NagiosXIV2Callback',
+        'hip-chat-callback-v2': 'HipChatCallbackV2',
         'stackdriver-callback': 'StackdriverCallback',
-        'flowdock-v2-callback': 'FlowdockV2Callback'
+        'flowdock-v2-callback': 'FlowdockV2Callback',
+        'zabbix-callback': 'ZabbixCallback',
+        'slack-callback': 'SlackCallback',
+        'solarwinds-callback': 'SolarwindsCallback'
     }
 
     def __init__(self, alert_filter=None, alert_actions=None, callback_type=None):  # noqa: E501
@@ -141,7 +153,7 @@ class OutgoingCallback(object):
         :param callback_type: The callback_type of this OutgoingCallback.  # noqa: E501
         :type: str
         """
-        allowed_values = ["bidirectional-callback", "webhook-callback", "campfire-callback", "flowdock-callback", "flowdock-v2-callback", "planio-callback"]  # noqa: E501
+        allowed_values = ["bidirectional-callback", "campfire-callback", "flowdock-callback", "flowdock-v2-callback", "planio-callback"]  # noqa: E501
         if callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `callback_type` ({0}), must be one of {1}"  # noqa: E501

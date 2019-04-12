@@ -29,45 +29,45 @@ class TestPolicyApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_change_alert_policy_order(self):
-        """Test case for change_alert_policy_order
+    def test_change_policy_order(self):
+        """Test case for change_policy_order
 
-        Change Alert Policy Order  # noqa: E501
+        Change Policy Order  # noqa: E501
         """
         pass
 
-    def test_create_alert_policy(self):
-        """Test case for create_alert_policy
+    def test_create_policy(self):
+        """Test case for create_policy
 
-        Create Alert Policy  # noqa: E501
+        Create Policy  # noqa: E501
         """
         pass
 
-    def test_delete_alert_policy(self):
-        """Test case for delete_alert_policy
+    def test_delete_policy(self):
+        """Test case for delete_policy
 
-        Delete Alert Policy  # noqa: E501
+        Delete Policy  # noqa: E501
         """
         pass
 
-    def test_disable_alert_policy(self):
-        """Test case for disable_alert_policy
+    def test_disable_policy(self):
+        """Test case for disable_policy
 
-        Disable Alert Policy  # noqa: E501
+        Disable Policy  # noqa: E501
         """
         pass
 
-    def test_enable_alert_policy(self):
-        """Test case for enable_alert_policy
+    def test_enable_policy(self):
+        """Test case for enable_policy
 
-        Enable Alert Policy  # noqa: E501
+        Enable Policy  # noqa: E501
         """
         pass
 
-    def test_get_alert_policy(self):
-        """Test case for get_alert_policy
+    def test_get_policy(self):
+        """Test case for get_policy
 
-        Get Alert Policy  # noqa: E501
+        Get Policy  # noqa: E501
         """
         pass
 
@@ -78,10 +78,17 @@ class TestPolicyApi(unittest.TestCase):
         """
         pass
 
-    def test_update_alert_policy(self):
-        """Test case for update_alert_policy
+    def test_list_notification_policies(self):
+        """Test case for list_notification_policies
 
-        Update Alert Policy  # noqa: E501
+        List Notification Policies  # noqa: E501
+        """
+        pass
+
+    def test_update_policy(self):
+        """Test case for update_policy
+
+        Update Policy  # noqa: E501
         """
         pass
 

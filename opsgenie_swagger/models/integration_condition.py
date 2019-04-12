@@ -53,11 +53,14 @@ class IntegrationCondition(object):
         self._expected_value = None
         self.discriminator = None
 
-        self.field = field
+        if field is not None:
+            self.field = field
         if _not is not None:
             self._not = _not
-        self.operation = operation
-        self.expected_value = expected_value
+        if operation is not None:
+            self.operation = operation
+        if expected_value is not None:
+            self.expected_value = expected_value
 
     @property
     def field(self):
@@ -77,8 +80,6 @@ class IntegrationCondition(object):
         :param field: The field of this IntegrationCondition.  # noqa: E501
         :type: str
         """
-        if field is None:
-            raise ValueError("Invalid value for `field`, must not be `None`")  # noqa: E501
 
         self._field = field
 
@@ -121,8 +122,6 @@ class IntegrationCondition(object):
         :param operation: The operation of this IntegrationCondition.  # noqa: E501
         :type: str
         """
-        if operation is None:
-            raise ValueError("Invalid value for `operation`, must not be `None`")  # noqa: E501
         allowed_values = ["matches", "contains", "starts-with", "ends-with", "equals", "contains-key", "contains-value", "greater-than", "less-than", "is-empty", "equals-ignore-whitespace"]  # noqa: E501
         if operation not in allowed_values:
             raise ValueError(
@@ -150,8 +149,6 @@ class IntegrationCondition(object):
         :param expected_value: The expected_value of this IntegrationCondition.  # noqa: E501
         :type: str
         """
-        if expected_value is None:
-            raise ValueError("Invalid value for `expected_value`, must not be `None`")  # noqa: E501
 
         self._expected_value = expected_value
 

@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import opsgenie_swagger
-from opsgenie_swagger.models.scom_integration import SCOMIntegration  # noqa: E501
+from opsgenie_swagger.models.scom_integration import ScomIntegration  # noqa: E501
 from opsgenie_swagger.rest import ApiException
 
 
-class TestSCOMIntegration(unittest.TestCase):
-    """SCOMIntegration unit test stubs"""
+class TestScomIntegration(unittest.TestCase):
+    """ScomIntegration unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestSCOMIntegration(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testSCOMIntegration(self):
-        """Test SCOMIntegration"""
+    def testScomIntegration(self):
+        """Test ScomIntegration"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = opsgenie_swagger.models.scom_integration.SCOMIntegration()  # noqa: E501
+        # model = opsgenie_swagger.models.scom_integration.ScomIntegration()  # noqa: E501
         pass
 
 

@@ -16,7 +16,6 @@ import re  # noqa: F401
 
 import six
 
-from opsgenie_swagger.models.base_integration_action import BaseIntegrationAction  # noqa: F401,E501
 from opsgenie_swagger.models.common_integration_action import CommonIntegrationAction  # noqa: F401,E501
 from opsgenie_swagger.models.integration_action_filter import IntegrationActionFilter  # noqa: F401,E501
 from opsgenie_swagger.models.recipient import Recipient  # noqa: F401,E501
@@ -36,14 +35,12 @@ class CreateIntegrationAction(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'user': 'str',
-        'note': 'str',
-        'alias': 'str',
         'source': 'str',
         'message': 'str',
         'description': 'str',
         'entity': 'str',
         'priority': 'str',
+        'custom_priority': 'str',
         'append_attachments': 'bool',
         'alert_actions': 'list[str]',
         'ignore_alert_actions_from_payload': 'bool',
@@ -57,14 +54,12 @@ class CreateIntegrationAction(object):
     }
 
     attribute_map = {
-        'user': 'user',
-        'note': 'note',
-        'alias': 'alias',
         'source': 'source',
         'message': 'message',
         'description': 'description',
         'entity': 'entity',
         'priority': 'priority',
+        'custom_priority': 'customPriority',
         'append_attachments': 'appendAttachments',
         'alert_actions': 'alertActions',
         'ignore_alert_actions_from_payload': 'ignoreAlertActionsFromPayload',
@@ -77,17 +72,15 @@ class CreateIntegrationAction(object):
         'ignore_extra_properties_from_payload': 'ignoreExtraPropertiesFromPayload'
     }
 
-    def __init__(self, user=None, note=None, alias=None, source=None, message=None, description=None, entity=None, priority=None, append_attachments=None, alert_actions=None, ignore_alert_actions_from_payload=None, recipients=None, ignore_recipients_from_payload=None, ignore_teams_from_payload=None, tags=None, ignore_tags_from_payload=None, extra_properties=None, ignore_extra_properties_from_payload=None):  # noqa: E501
+    def __init__(self, source=None, message=None, description=None, entity=None, priority=None, custom_priority=None, append_attachments=None, alert_actions=None, ignore_alert_actions_from_payload=None, recipients=None, ignore_recipients_from_payload=None, ignore_teams_from_payload=None, tags=None, ignore_tags_from_payload=None, extra_properties=None, ignore_extra_properties_from_payload=None):  # noqa: E501
         """CreateIntegrationAction - a model defined in Swagger"""  # noqa: E501
 
-        self._user = None
-        self._note = None
-        self._alias = None
         self._source = None
         self._message = None
         self._description = None
         self._entity = None
         self._priority = None
+        self._custom_priority = None
         self._append_attachments = None
         self._alert_actions = None
         self._ignore_alert_actions_from_payload = None
@@ -100,12 +93,6 @@ class CreateIntegrationAction(object):
         self._ignore_extra_properties_from_payload = None
         self.discriminator = None
 
-        if user is not None:
-            self.user = user
-        if note is not None:
-            self.note = note
-        if alias is not None:
-            self.alias = alias
         if source is not None:
             self.source = source
         if message is not None:
@@ -116,6 +103,8 @@ class CreateIntegrationAction(object):
             self.entity = entity
         if priority is not None:
             self.priority = priority
+        if custom_priority is not None:
+            self.custom_priority = custom_priority
         if append_attachments is not None:
             self.append_attachments = append_attachments
         if alert_actions is not None:
@@ -136,69 +125,6 @@ class CreateIntegrationAction(object):
             self.extra_properties = extra_properties
         if ignore_extra_properties_from_payload is not None:
             self.ignore_extra_properties_from_payload = ignore_extra_properties_from_payload
-
-    @property
-    def user(self):
-        """Gets the user of this CreateIntegrationAction.  # noqa: E501
-
-
-        :return: The user of this CreateIntegrationAction.  # noqa: E501
-        :rtype: str
-        """
-        return self._user
-
-    @user.setter
-    def user(self, user):
-        """Sets the user of this CreateIntegrationAction.
-
-
-        :param user: The user of this CreateIntegrationAction.  # noqa: E501
-        :type: str
-        """
-
-        self._user = user
-
-    @property
-    def note(self):
-        """Gets the note of this CreateIntegrationAction.  # noqa: E501
-
-
-        :return: The note of this CreateIntegrationAction.  # noqa: E501
-        :rtype: str
-        """
-        return self._note
-
-    @note.setter
-    def note(self, note):
-        """Sets the note of this CreateIntegrationAction.
-
-
-        :param note: The note of this CreateIntegrationAction.  # noqa: E501
-        :type: str
-        """
-
-        self._note = note
-
-    @property
-    def alias(self):
-        """Gets the alias of this CreateIntegrationAction.  # noqa: E501
-
-
-        :return: The alias of this CreateIntegrationAction.  # noqa: E501
-        :rtype: str
-        """
-        return self._alias
-
-    @alias.setter
-    def alias(self, alias):
-        """Sets the alias of this CreateIntegrationAction.
-
-
-        :param alias: The alias of this CreateIntegrationAction.  # noqa: E501
-        :type: str
-        """
-
-        self._alias = alias
 
     @property
     def source(self):
@@ -310,6 +236,27 @@ class CreateIntegrationAction(object):
             )
 
         self._priority = priority
+
+    @property
+    def custom_priority(self):
+        """Gets the custom_priority of this CreateIntegrationAction.  # noqa: E501
+
+
+        :return: The custom_priority of this CreateIntegrationAction.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_priority
+
+    @custom_priority.setter
+    def custom_priority(self, custom_priority):
+        """Sets the custom_priority of this CreateIntegrationAction.
+
+
+        :param custom_priority: The custom_priority of this CreateIntegrationAction.  # noqa: E501
+        :type: str
+        """
+
+        self._custom_priority = custom_priority
 
     @property
     def append_attachments(self):

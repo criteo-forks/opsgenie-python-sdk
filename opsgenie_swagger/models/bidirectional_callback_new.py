@@ -121,7 +121,7 @@ class BidirectionalCallbackNew(object):
         :param bidirectional_callback_type: The bidirectional_callback_type of this BidirectionalCallbackNew.  # noqa: E501
         :type: str
         """
-        allowed_values = ["opsgenie-callback", "jira-callback", "jira-service-desk-callback", "service-now-callback", "kayako-callback", "ms-teams-callback", "op5-callback", "status-page-io-callback", "zendesk-callback"]  # noqa: E501
+        allowed_values = ["bmc-foot-prints-v11-callback", "bmc-foot-prints-v12-callback", "bmc-remedy-callback", "cherwell-callback", "connect-wise-manage-callback", "connect-wise-manage-v2-callback", "dynatrace-app-mon-callback", "freshdesk-callback", "freshservice-callback", "jira-callback", "jira-service-desk-callback", "kayako-callback", "libre-nms-callback", "magentrix-callback", "ms-teams-callback", "ms-teams-v2-callback", "op5-callback", "ops-genie-callback", "prtg-callback", "rollbar-callback", "sales-force-service-cloud-callback", "service-now-v2-callback", "service-now-v3-callback", "solarwinds-msp-ncentral-callback", "splunk-itsi-callback", "status-page-io-callback", "sumo-logic-callback", "zendesk-callback"]  # noqa: E501
         if bidirectional_callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `bidirectional_callback_type` ({0}), must be one of {1}"  # noqa: E501

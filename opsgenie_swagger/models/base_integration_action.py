@@ -47,6 +47,7 @@ class BaseIntegrationAction(object):
     }
 
     discriminator_value_class_map = {
+        'CommonIntegrationAction': 'CommonIntegrationAction',
         'ignore': 'IgnoreIntegrationAction',
         'addNote': 'AddNoteIntegrationAction',
         'close': 'CloseIntegrationAction',
@@ -63,12 +64,10 @@ class BaseIntegrationAction(object):
         self._type = None
         self.discriminator = 'type'
 
-        if name is not None:
-            self.name = name
+        self.name = name
         if order is not None:
             self.order = order
-        if filter is not None:
-            self.filter = filter
+        self.filter = filter
         self.type = type
 
     @property
@@ -89,6 +88,8 @@ class BaseIntegrationAction(object):
         :param name: The name of this BaseIntegrationAction.  # noqa: E501
         :type: str
         """
+        if name is None:
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -110,6 +111,8 @@ class BaseIntegrationAction(object):
         :param order: The order of this BaseIntegrationAction.  # noqa: E501
         :type: int
         """
+        if order is not None and order < 0:  # noqa: E501
+            raise ValueError("Invalid value for `order`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._order = order
 
@@ -131,6 +134,8 @@ class BaseIntegrationAction(object):
         :param filter: The filter of this BaseIntegrationAction.  # noqa: E501
         :type: IntegrationActionFilter
         """
+        if filter is None:
+            raise ValueError("Invalid value for `filter`, must not be `None`")  # noqa: E501
 
         self._filter = filter
 
@@ -154,7 +159,7 @@ class BaseIntegrationAction(object):
         """
         if type is None:
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["ignore", "acknowledge", "addNote", "close", "create"]  # noqa: E501
+        allowed_values = ["acknowledge", "addNote", "close", "create", "ignore"]  # noqa: E501
         if type not in allowed_values:
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

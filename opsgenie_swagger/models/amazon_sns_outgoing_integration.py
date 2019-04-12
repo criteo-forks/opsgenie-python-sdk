@@ -42,7 +42,8 @@ class AmazonSnsOutgoingIntegration(object):
         'forwarding_action_mappings': 'list[ActionMapping]',
         'callback_type': 'str',
         'topic_arn': 'str',
-        'region': 'str'
+        'region': 'str',
+        'new_conf_type': 'bool'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class AmazonSnsOutgoingIntegration(object):
         'forwarding_action_mappings': 'forwardingActionMappings',
         'callback_type': 'callback-type',
         'topic_arn': 'topicArn',
-        'region': 'region'
+        'region': 'region',
+        'new_conf_type': 'newConfType'
     }
 
-    def __init__(self, alert_filter=None, forwarding_enabled=None, forwarding_action_mappings=None, callback_type=None, topic_arn=None, region=None):  # noqa: E501
+    def __init__(self, alert_filter=None, forwarding_enabled=None, forwarding_action_mappings=None, callback_type=None, topic_arn=None, region=None, new_conf_type=None):  # noqa: E501
         """AmazonSnsOutgoingIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._alert_filter = None
@@ -63,6 +65,7 @@ class AmazonSnsOutgoingIntegration(object):
         self._callback_type = None
         self._topic_arn = None
         self._region = None
+        self._new_conf_type = None
         self.discriminator = None
 
         if alert_filter is not None:
@@ -77,6 +80,8 @@ class AmazonSnsOutgoingIntegration(object):
             self.topic_arn = topic_arn
         if region is not None:
             self.region = region
+        if new_conf_type is not None:
+            self.new_conf_type = new_conf_type
 
     @property
     def alert_filter(self):
@@ -159,7 +164,7 @@ class AmazonSnsOutgoingIntegration(object):
         :param callback_type: The callback_type of this AmazonSnsOutgoingIntegration.  # noqa: E501
         :type: str
         """
-        allowed_values = ["bidirectional-callback-new", "amazon-sns-callback"]  # noqa: E501
+        allowed_values = ["amazon-sns-callback", "base-webhook-callback", "bidirectional-callback-new", "bmc-remedy-on-demand-callback"]  # noqa: E501
         if callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `callback_type` ({0}), must be one of {1}"  # noqa: E501
@@ -209,6 +214,27 @@ class AmazonSnsOutgoingIntegration(object):
         """
 
         self._region = region
+
+    @property
+    def new_conf_type(self):
+        """Gets the new_conf_type of this AmazonSnsOutgoingIntegration.  # noqa: E501
+
+
+        :return: The new_conf_type of this AmazonSnsOutgoingIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._new_conf_type
+
+    @new_conf_type.setter
+    def new_conf_type(self, new_conf_type):
+        """Sets the new_conf_type of this AmazonSnsOutgoingIntegration.
+
+
+        :param new_conf_type: The new_conf_type of this AmazonSnsOutgoingIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._new_conf_type = new_conf_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

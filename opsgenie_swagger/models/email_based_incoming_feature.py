@@ -18,6 +18,7 @@ import six
 
 from opsgenie_swagger.models.base_incoming_feature import BaseIncomingFeature  # noqa: F401,E501
 from opsgenie_swagger.models.recipient import Recipient  # noqa: F401,E501
+from opsgenie_swagger.models.team_meta import TeamMeta  # noqa: F401,E501
 
 
 class EmailBasedIncomingFeature(object):

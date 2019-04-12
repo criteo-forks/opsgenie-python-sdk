@@ -16,10 +16,11 @@ import re  # noqa: F401
 
 import six
 
+from opsgenie_swagger.models.action_mapping import ActionMapping  # noqa: F401,E501
 from opsgenie_swagger.models.alert_filter import AlertFilter  # noqa: F401,E501
 from opsgenie_swagger.models.integration import Integration  # noqa: F401,E501
+from opsgenie_swagger.models.kore_callback import KoreCallback  # noqa: F401,E501
 from opsgenie_swagger.models.team_meta import TeamMeta  # noqa: F401,E501
-from opsgenie_swagger.models.webhook_callback import WebhookCallback  # noqa: F401,E501
 
 
 class KoreIntegration(object):
@@ -37,40 +38,60 @@ class KoreIntegration(object):
     """
     swagger_types = {
         'alert_filter': 'AlertFilter',
-        'alert_actions': 'list[str]',
+        'forwarding_enabled': 'bool',
+        'forwarding_action_mappings': 'list[ActionMapping]',
         'callback_type': 'str',
         'url': 'str',
-        'headers': 'dict(str, str)'
+        'headers': 'dict(str, str)',
+        'add_alert_details': 'bool',
+        'add_alert_description': 'bool',
+        'base_webhook_callback_type': 'str'
     }
 
     attribute_map = {
         'alert_filter': 'alertFilter',
-        'alert_actions': 'alertActions',
+        'forwarding_enabled': 'forwardingEnabled',
+        'forwarding_action_mappings': 'forwardingActionMappings',
         'callback_type': 'callback-type',
         'url': 'url',
-        'headers': 'headers'
+        'headers': 'headers',
+        'add_alert_details': 'addAlertDetails',
+        'add_alert_description': 'addAlertDescription',
+        'base_webhook_callback_type': 'base-webhook-callback-type'
     }
 
-    def __init__(self, alert_filter=None, alert_actions=None, callback_type=None, url=None, headers=None):  # noqa: E501
+    def __init__(self, alert_filter=None, forwarding_enabled=None, forwarding_action_mappings=None, callback_type=None, url=None, headers=None, add_alert_details=None, add_alert_description=None, base_webhook_callback_type=None):  # noqa: E501
         """KoreIntegration - a model defined in Swagger"""  # noqa: E501
 
         self._alert_filter = None
-        self._alert_actions = None
+        self._forwarding_enabled = None
+        self._forwarding_action_mappings = None
         self._callback_type = None
         self._url = None
         self._headers = None
+        self._add_alert_details = None
+        self._add_alert_description = None
+        self._base_webhook_callback_type = None
         self.discriminator = None
 
         if alert_filter is not None:
             self.alert_filter = alert_filter
-        if alert_actions is not None:
-            self.alert_actions = alert_actions
+        if forwarding_enabled is not None:
+            self.forwarding_enabled = forwarding_enabled
+        if forwarding_action_mappings is not None:
+            self.forwarding_action_mappings = forwarding_action_mappings
         if callback_type is not None:
             self.callback_type = callback_type
         if url is not None:
             self.url = url
         if headers is not None:
             self.headers = headers
+        if add_alert_details is not None:
+            self.add_alert_details = add_alert_details
+        if add_alert_description is not None:
+            self.add_alert_description = add_alert_description
+        if base_webhook_callback_type is not None:
+            self.base_webhook_callback_type = base_webhook_callback_type
 
     @property
     def alert_filter(self):
@@ -94,25 +115,46 @@ class KoreIntegration(object):
         self._alert_filter = alert_filter
 
     @property
-    def alert_actions(self):
-        """Gets the alert_actions of this KoreIntegration.  # noqa: E501
+    def forwarding_enabled(self):
+        """Gets the forwarding_enabled of this KoreIntegration.  # noqa: E501
 
 
-        :return: The alert_actions of this KoreIntegration.  # noqa: E501
-        :rtype: list[str]
+        :return: The forwarding_enabled of this KoreIntegration.  # noqa: E501
+        :rtype: bool
         """
-        return self._alert_actions
+        return self._forwarding_enabled
 
-    @alert_actions.setter
-    def alert_actions(self, alert_actions):
-        """Sets the alert_actions of this KoreIntegration.
+    @forwarding_enabled.setter
+    def forwarding_enabled(self, forwarding_enabled):
+        """Sets the forwarding_enabled of this KoreIntegration.
 
 
-        :param alert_actions: The alert_actions of this KoreIntegration.  # noqa: E501
-        :type: list[str]
+        :param forwarding_enabled: The forwarding_enabled of this KoreIntegration.  # noqa: E501
+        :type: bool
         """
 
-        self._alert_actions = alert_actions
+        self._forwarding_enabled = forwarding_enabled
+
+    @property
+    def forwarding_action_mappings(self):
+        """Gets the forwarding_action_mappings of this KoreIntegration.  # noqa: E501
+
+
+        :return: The forwarding_action_mappings of this KoreIntegration.  # noqa: E501
+        :rtype: list[ActionMapping]
+        """
+        return self._forwarding_action_mappings
+
+    @forwarding_action_mappings.setter
+    def forwarding_action_mappings(self, forwarding_action_mappings):
+        """Sets the forwarding_action_mappings of this KoreIntegration.
+
+
+        :param forwarding_action_mappings: The forwarding_action_mappings of this KoreIntegration.  # noqa: E501
+        :type: list[ActionMapping]
+        """
+
+        self._forwarding_action_mappings = forwarding_action_mappings
 
     @property
     def callback_type(self):
@@ -132,7 +174,7 @@ class KoreIntegration(object):
         :param callback_type: The callback_type of this KoreIntegration.  # noqa: E501
         :type: str
         """
-        allowed_values = ["bidirectional-callback", "webhook-callback", "campfire-callback", "flowdock-callback", "flowdock-v2-callback", "planio-callback"]  # noqa: E501
+        allowed_values = ["amazon-sns-callback", "base-webhook-callback", "bidirectional-callback-new", "bmc-remedy-on-demand-callback"]  # noqa: E501
         if callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `callback_type` ({0}), must be one of {1}"  # noqa: E501
@@ -182,6 +224,75 @@ class KoreIntegration(object):
         """
 
         self._headers = headers
+
+    @property
+    def add_alert_details(self):
+        """Gets the add_alert_details of this KoreIntegration.  # noqa: E501
+
+
+        :return: The add_alert_details of this KoreIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._add_alert_details
+
+    @add_alert_details.setter
+    def add_alert_details(self, add_alert_details):
+        """Sets the add_alert_details of this KoreIntegration.
+
+
+        :param add_alert_details: The add_alert_details of this KoreIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._add_alert_details = add_alert_details
+
+    @property
+    def add_alert_description(self):
+        """Gets the add_alert_description of this KoreIntegration.  # noqa: E501
+
+
+        :return: The add_alert_description of this KoreIntegration.  # noqa: E501
+        :rtype: bool
+        """
+        return self._add_alert_description
+
+    @add_alert_description.setter
+    def add_alert_description(self, add_alert_description):
+        """Sets the add_alert_description of this KoreIntegration.
+
+
+        :param add_alert_description: The add_alert_description of this KoreIntegration.  # noqa: E501
+        :type: bool
+        """
+
+        self._add_alert_description = add_alert_description
+
+    @property
+    def base_webhook_callback_type(self):
+        """Gets the base_webhook_callback_type of this KoreIntegration.  # noqa: E501
+
+
+        :return: The base_webhook_callback_type of this KoreIntegration.  # noqa: E501
+        :rtype: str
+        """
+        return self._base_webhook_callback_type
+
+    @base_webhook_callback_type.setter
+    def base_webhook_callback_type(self, base_webhook_callback_type):
+        """Sets the base_webhook_callback_type of this KoreIntegration.
+
+
+        :param base_webhook_callback_type: The base_webhook_callback_type of this KoreIntegration.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["flock-callback", "kore-callback", "moxtra-callback", "ring-central-glip-callback", "statusy-callback", "webhook-callback"]  # noqa: E501
+        if base_webhook_callback_type not in allowed_values:
+            raise ValueError(
+                "Invalid value for `base_webhook_callback_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(base_webhook_callback_type, allowed_values)
+            )
+
+        self._base_webhook_callback_type = base_webhook_callback_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""

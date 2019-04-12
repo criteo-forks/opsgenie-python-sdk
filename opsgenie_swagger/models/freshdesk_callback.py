@@ -16,8 +16,9 @@ import re  # noqa: F401
 
 import six
 
+from opsgenie_swagger.models.action_mapping import ActionMapping  # noqa: F401,E501
 from opsgenie_swagger.models.alert_filter import AlertFilter  # noqa: F401,E501
-from opsgenie_swagger.models.bidirectional_callback import BidirectionalCallback  # noqa: F401,E501
+from opsgenie_swagger.models.bidirectional_callback_new import BidirectionalCallbackNew  # noqa: F401,E501
 
 
 class FreshdeskCallback(object):
@@ -34,47 +35,47 @@ class FreshdeskCallback(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'freshdesk_api_key': 'str',
+        'api_key': 'str',
         'freshdesk_subdomain': 'str'
     }
 
     attribute_map = {
-        'freshdesk_api_key': 'freshdeskApiKey',
+        'api_key': 'apiKey',
         'freshdesk_subdomain': 'freshdeskSubdomain'
     }
 
-    def __init__(self, freshdesk_api_key=None, freshdesk_subdomain=None):  # noqa: E501
+    def __init__(self, api_key=None, freshdesk_subdomain=None):  # noqa: E501
         """FreshdeskCallback - a model defined in Swagger"""  # noqa: E501
 
-        self._freshdesk_api_key = None
+        self._api_key = None
         self._freshdesk_subdomain = None
         self.discriminator = None
 
-        if freshdesk_api_key is not None:
-            self.freshdesk_api_key = freshdesk_api_key
+        if api_key is not None:
+            self.api_key = api_key
         if freshdesk_subdomain is not None:
             self.freshdesk_subdomain = freshdesk_subdomain
 
     @property
-    def freshdesk_api_key(self):
-        """Gets the freshdesk_api_key of this FreshdeskCallback.  # noqa: E501
+    def api_key(self):
+        """Gets the api_key of this FreshdeskCallback.  # noqa: E501
 
 
-        :return: The freshdesk_api_key of this FreshdeskCallback.  # noqa: E501
+        :return: The api_key of this FreshdeskCallback.  # noqa: E501
         :rtype: str
         """
-        return self._freshdesk_api_key
+        return self._api_key
 
-    @freshdesk_api_key.setter
-    def freshdesk_api_key(self, freshdesk_api_key):
-        """Sets the freshdesk_api_key of this FreshdeskCallback.
+    @api_key.setter
+    def api_key(self, api_key):
+        """Sets the api_key of this FreshdeskCallback.
 
 
-        :param freshdesk_api_key: The freshdesk_api_key of this FreshdeskCallback.  # noqa: E501
+        :param api_key: The api_key of this FreshdeskCallback.  # noqa: E501
         :type: str
         """
 
-        self._freshdesk_api_key = freshdesk_api_key
+        self._api_key = api_key
 
     @property
     def freshdesk_subdomain(self):

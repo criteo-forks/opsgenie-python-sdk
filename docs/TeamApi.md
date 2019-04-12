@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_teams**
-> ListTeamsResponse list_teams(expand=expand)
+> ListTeamsResponse list_teams()
 
 List Teams
 
@@ -263,21 +263,17 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = opsgenie_swagger.TeamApi(opsgenie_swagger.ApiClient(configuration))
-expand = ['expand_example'] # list[str] | Returns more detailed response with expanding it. Possible value is 'member' which is also returned with expandable field of response (optional)
 
 try:
     # List Teams
-    api_response = api_instance.list_teams(expand=expand)
+    api_response = api_instance.list_teams()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling TeamApi->list_teams: %s\n" % e)
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **expand** | [**list[str]**](str.md)| Returns more detailed response with expanding it. Possible value is &#39;member&#39; which is also returned with expandable field of response | [optional] 
+This endpoint does not need any parameter.
 
 ### Return type
 

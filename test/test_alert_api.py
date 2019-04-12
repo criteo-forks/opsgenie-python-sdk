@@ -57,6 +57,13 @@ class TestAlertApi(unittest.TestCase):
         """
         pass
 
+    def test_add_responder(self):
+        """Test case for add_responder
+
+        Add Responder  # noqa: E501
+        """
+        pass
+
     def test_add_tags(self):
         """Test case for add_tags
 

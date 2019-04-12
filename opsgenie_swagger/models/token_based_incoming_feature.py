@@ -18,6 +18,7 @@ import six
 
 from opsgenie_swagger.models.base_incoming_feature import BaseIncomingFeature  # noqa: F401,E501
 from opsgenie_swagger.models.recipient import Recipient  # noqa: F401,E501
+from opsgenie_swagger.models.team_meta import TeamMeta  # noqa: F401,E501
 
 
 class TokenBasedIncomingFeature(object):
@@ -35,25 +36,35 @@ class TokenBasedIncomingFeature(object):
     """
     swagger_types = {
         'allow_configuration_access': 'bool',
-        'allow_write_access': 'bool'
+        'allow_read_access': 'bool',
+        'allow_write_access': 'bool',
+        'allow_delete_access': 'bool'
     }
 
     attribute_map = {
         'allow_configuration_access': 'allowConfigurationAccess',
-        'allow_write_access': 'allowWriteAccess'
+        'allow_read_access': 'allowReadAccess',
+        'allow_write_access': 'allowWriteAccess',
+        'allow_delete_access': 'allowDeleteAccess'
     }
 
-    def __init__(self, allow_configuration_access=None, allow_write_access=None):  # noqa: E501
+    def __init__(self, allow_configuration_access=None, allow_read_access=None, allow_write_access=None, allow_delete_access=None):  # noqa: E501
         """TokenBasedIncomingFeature - a model defined in Swagger"""  # noqa: E501
 
         self._allow_configuration_access = None
+        self._allow_read_access = None
         self._allow_write_access = None
+        self._allow_delete_access = None
         self.discriminator = None
 
         if allow_configuration_access is not None:
             self.allow_configuration_access = allow_configuration_access
+        if allow_read_access is not None:
+            self.allow_read_access = allow_read_access
         if allow_write_access is not None:
             self.allow_write_access = allow_write_access
+        if allow_delete_access is not None:
+            self.allow_delete_access = allow_delete_access
 
     @property
     def allow_configuration_access(self):
@@ -79,6 +90,27 @@ class TokenBasedIncomingFeature(object):
         self._allow_configuration_access = allow_configuration_access
 
     @property
+    def allow_read_access(self):
+        """Gets the allow_read_access of this TokenBasedIncomingFeature.  # noqa: E501
+
+
+        :return: The allow_read_access of this TokenBasedIncomingFeature.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_read_access
+
+    @allow_read_access.setter
+    def allow_read_access(self, allow_read_access):
+        """Sets the allow_read_access of this TokenBasedIncomingFeature.
+
+
+        :param allow_read_access: The allow_read_access of this TokenBasedIncomingFeature.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_read_access = allow_read_access
+
+    @property
     def allow_write_access(self):
         """Gets the allow_write_access of this TokenBasedIncomingFeature.  # noqa: E501
 
@@ -100,6 +132,27 @@ class TokenBasedIncomingFeature(object):
         """
 
         self._allow_write_access = allow_write_access
+
+    @property
+    def allow_delete_access(self):
+        """Gets the allow_delete_access of this TokenBasedIncomingFeature.  # noqa: E501
+
+
+        :return: The allow_delete_access of this TokenBasedIncomingFeature.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_delete_access
+
+    @allow_delete_access.setter
+    def allow_delete_access(self, allow_delete_access):
+        """Sets the allow_delete_access of this TokenBasedIncomingFeature.
+
+
+        :param allow_delete_access: The allow_delete_access of this TokenBasedIncomingFeature.  # noqa: E501
+        :type: bool
+        """
+
+        self._allow_delete_access = allow_delete_access
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -48,17 +48,44 @@ class OutgoingCallbackNew(object):
     }
 
     discriminator_value_class_map = {
-        'opsgenie-callback': 'OpsgenieCallback',
         'ms-teams-callback': 'MSTeamsCallback',
+        'ms-teams-v2-callback': 'MSTeamsV2Callback',
+        'cherwell-callback': 'CherwellCallback',
+        'ops-genie-callback': 'OpsGenieCallback',
         'amazon-sns-callback': 'AmazonSnsCallback',
         'kayako-callback': 'KayakoCallback',
-        'op5-callback': 'Op5Callback',
+        'libre-nms-callback': 'LibreNMSCallback',
+        'splunk-itsi-callback': 'SplunkITSICallback',
+        'prtg-callback': 'PrtgCallback',
+        'dynatrace-app-mon-callback': 'DynatraceAppMonCallback',
         'jira-service-desk-callback': 'JiraServiceDeskCallback',
+        'base-webhook-callback': 'BaseWebhookCallback',
+        'flock-callback': 'FlockCallback',
         'jira-callback': 'JiraCallback',
-        'service-now-callback': 'ServiceNowCallback',
+        'bmc-foot-prints-v12-callback': 'BMCFootPrintsV12Callback',
+        'kore-callback': 'KoreCallback',
+        'solarwinds-msp-ncentral-callback': 'SolarwindsMSPNcentralCallback',
+        'bmc-remedy-on-demand-callback': 'BMCRemedyOnDemandCallback',
+        'sales-force-service-cloud-callback': 'SalesForceServiceCloudCallback',
+        'rollbar-callback': 'RollbarCallback',
+        'freshdesk-callback': 'FreshdeskCallback',
+        'connect-wise-manage-v2-callback': 'ConnectWiseManageV2Callback',
+        'webhook-callback': 'WebhookCallback',
+        'statusy-callback': 'StatusyCallback',
+        'service-now-v3-callback': 'ServiceNowV3Callback',
+        'bmc-foot-prints-v11-callback': 'BMCFootPrintsV11Callback',
         'zendesk-callback': 'ZendeskCallback',
         'bidirectional-callback-new': 'BidirectionalCallbackNew',
-        'status-page-io-callback': 'StatusPageIOCallback'
+        'sumo-logic-callback': 'SumoLogicCallback',
+        'freshservice-callback': 'FreshserviceCallback',
+        'magentrix-callback': 'MagentrixCallback',
+        'status-page-io-callback': 'StatusPageIOCallback',
+        'op5-callback': 'OP5Callback',
+        'service-now-v2-callback': 'ServiceNowV2Callback',
+        'bmc-remedy-callback': 'BMCRemedyCallback',
+        'ring-central-glip-callback': 'RingCentralGlipCallback',
+        'connect-wise-manage-callback': 'ConnectWiseManageCallback',
+        'moxtra-callback': 'MoxtraCallback'
     }
 
     def __init__(self, alert_filter=None, forwarding_enabled=None, forwarding_action_mappings=None, callback_type=None):  # noqa: E501
@@ -160,7 +187,7 @@ class OutgoingCallbackNew(object):
         :param callback_type: The callback_type of this OutgoingCallbackNew.  # noqa: E501
         :type: str
         """
-        allowed_values = ["bidirectional-callback-new", "amazon-sns-callback"]  # noqa: E501
+        allowed_values = ["amazon-sns-callback", "base-webhook-callback", "bidirectional-callback-new", "bmc-remedy-on-demand-callback"]  # noqa: E501
         if callback_type not in allowed_values:
             raise ValueError(
                 "Invalid value for `callback_type` ({0}), must be one of {1}"  # noqa: E501
